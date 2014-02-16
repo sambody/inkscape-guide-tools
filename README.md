@@ -3,6 +3,30 @@ Inkscape guide tools
 
 These are a series of [Inkscape](http://inkscape.org/) extensions related to guides - generating, deleting, moving etc. Work in progress.
 
+### The extensions are:
+
+### 1. Remove guides
+
+Three simple extensions:
+
+- remove all guides (may be part of core inkscape in upcoming version 0.49)
+- remove all horizontal guides
+- remove all vertical guides
+
+### 2. Add centered guides to the document
+
+With this extension you can 
+
+- add a horizontally centered guide (to the document)
+- or a vertically centered guide
+- or both at once.
+
+(I plan to make it also work for selected bounding boxes, not just for the document.)
+
+### 3. Add guides to borders to document, with optional offset on all sides
+
+(coming soon)
+
 ### How to install the extensions
 
 1. Download the zip archive to your computer;
@@ -17,26 +41,6 @@ Restart or open Inkscape.
 
 The extensions will all be available in the menu under **Extensions > Guide**
 
-### 1. Remove guides
-
-Three simple extensions:
-
-- remove all guides (may be part of core inkscape in upcoming version 0.49)
-- remove all horizontal guides
-- remove all vertical guides
-
-### 2. Add centered guides to the document
-
-With this extension you can 
-
-- add a horizontally centered guide (to the document for now)
-- or a vertically centered guide
-- or both at once.
-
-### 3. Add guides to borders to document, with optional offset on all sides
-
-(coming soon)
-
 ### Other extensions
 
 Other guides related extensions for Inkscape:
@@ -47,10 +51,10 @@ Other guides related extensions for Inkscape:
 ### Tips
 
 - You can add a keyboard shortcut to any extension. (todo: step by step instructions)
-- 
+
 ### News
 
-- february 16 2014: initial commit
+- february 16 2014: initial commit, added delete guides, added centered guides
 
 ### Licence
 
