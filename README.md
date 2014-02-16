@@ -23,7 +23,7 @@ With this extension you can
 
 (I plan to make it also work for selected bounding boxes, not just for the document.)
 
-### 3. Add guides to borders to document, with optional offset on all sides
+### 3. Add guides to borders to document, with optional offset on every sides
 
 (coming soon)
 
@@ -31,7 +31,7 @@ With this extension you can
 
 1. Download the zip archive to your computer;
 2. Unzip (extract) the archive on your computer;
-3. Open it. In the folder extensions, you will find the extension files (.inx and .py files). Copy these files into your Inkscape extensions folder:
+3. Open it. In the folder extensions, you will find the extension files (.inx and .py files). You can select them all, or only the ones you need. Copy the chosen files into your Inkscape extensions folder:
 
 - on Windows: "C:\Program Files\Inkscape\share\extensions"
 - on Linux: " /home/yourusername/.config/inkscape/extensions" (.config is a hidden folder)
