@@ -145,7 +145,7 @@ class addCenteredGuides(inkex.Effect):
 
 		# draw margin guides (if not zero)
 		if same_margins == True and top_margin == 0:
-			printError ("Zero margin guides are not drawn. To draw guides on the all borders, use Edit > Guides around page.")
+			printError (_("Zero margin guides are not drawn. To draw guides on the all borders, use Edit > Guides around page."))
 		else:
 			if same_margins:
 				right_margin = top_margin
