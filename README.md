@@ -17,11 +17,11 @@ Three simple extensions:
 
 With this extension you can 
 
-- add a horizontally centered guide (to the document)
+- add a horizontally centered guide to the document
 - or a vertically centered guide
 - or both at once.
 
-(I plan to make it also work for selected bounding boxes, not just for the document.)
+(add centered guides to selection/bounding box coming soon)
 
 ### 3. Add guides to borders to document, with optional offset on every sides
 
@@ -39,18 +39,20 @@ With this extension you can
 
 Restart or open Inkscape.
 
+### Where to find them
+
 The extensions will all be available in the menu under **Extensions > Guide**
 
 ### Other extensions
 
 Other guides related extensions for Inkscape:
 
-- The [Inkscape Grid Maker extension](https://github.com/sambody/inkscape-grid-maker), which I made to generate guides in a grid of columns/rows with gutters.
+- The [Inkscape Grid Maker extension](https://github.com/sambody/inkscape-grid-maker), which I made to generate guides in a grid of columns/rows with gutters - useful for web design for example.
 - Guides Creator (part of Inkscape by default), by Jonas Termeau - to divide your document into equal parts, or in proportional parts (rule of thirds, golden rule). Limited to 10 divisions, no gutters. I've used that extension as a base to make my extensions, so thanks to Jonas' work.
 
 ### Tips
 
-- You can add a keyboard shortcut to any extension. (todo: step by step instructions)
+- You can add a keyboard shortcut to any extension. (todo: step by step instructions; for now google it)
 
 ### News
 
@@ -60,4 +62,4 @@ Other guides related extensions for Inkscape:
 
 All my extensions are licenced under the GPL v2.
 
-I'm Samuel Dellicour.
+Author: Samuel Dellicour.
