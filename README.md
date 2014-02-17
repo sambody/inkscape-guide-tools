@@ -56,10 +56,11 @@ Other guides related extensions for Inkscape:
 
 ### News
 
-- february 16 2014: initial commit, added delete guides, added centered guides
+- February 17, 2014: added margin guides
+- February 16, 2014: initial commit, added delete guides, added centered guides
 
 ### Licence
 
 All my extensions are licenced under the GPL v2.
 
-Author: Samuel Dellicour.
+Author: Samuel Dellicour
