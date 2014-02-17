@@ -3,7 +3,7 @@ Inkscape guide tools
 
 These are a series of [Inkscape](http://inkscape.org/) extensions related to guides - generating, deleting, moving etc. Work in progress.
 
-### The extensions are:
+### The current extensions are:
 
 ### 1. Remove guides
 
@@ -26,6 +26,8 @@ With this extension you can
 ### 3. Add margin guides to document
 
 Add guides at a certain distance (margin) from the borders of the document. Margins can be equal or different for every side.
+
+Inkscape allows you to add guides exactly on the borders of the page, with Edit > Guides around page. With this extension however, you can add guides around the page with a certain offset, inside or outside the page.
 
 ### How to install the extensions
 
