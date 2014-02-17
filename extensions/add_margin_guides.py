@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 # sys.path.append('/usr/share/inkscape/extensions')
 
 ## We will use the inkex module with the predefined Effect base class.
-import inkex
+import inkex, os
 
 # Allow translation
 import gettext
@@ -72,82 +72,94 @@ def drawGuide(position, orientation, parent):
 
 class addCenteredGuides(inkex.Effect):
 
-        def __init__(self):
-                """
-                Constructor.
-                Defines options of the script.
-                """
-                # Call the base class constructor.
-                inkex.Effect.__init__(self)
+	def __init__(self):
+		"""
+		Constructor.
+		Defines options of the script.
+		"""
+		# Call the base class constructor.
+		inkex.Effect.__init__(self)
 
-                # Define boolean option "--include_hor_guide"
-                self.OptionParser.add_option('--same_margins',
-                        action = 'store', type = 'inkbool',
-                        dest = 'same_margins', default = False,
-                        help = 'Same margins on all four sides')
+		# Define boolean option "--include_hor_guide"
+		self.OptionParser.add_option('--same_margins',
+		        action = 'store', type = 'inkbool',
+		        dest = 'same_margins', default = False,
+		        help = 'Same margins on all four sides')
 
-                # Define string option "--top_margin"
-                self.OptionParser.add_option('--top_margin',
-                        action = 'store',type = 'string',
-                        dest = 'top_margin',default = 'centered',
-                        help = 'Top margin, distance from top border')
+		# Define string option "--top_margin"
+		self.OptionParser.add_option('--top_margin',
+		        action = 'store',type = 'string',
+		        dest = 'top_margin',default = 'centered',
+		        help = 'Top margin, distance from top border')
 
-                # Define string option "--right_margin"
-                self.OptionParser.add_option('--right_margin',
-                        action = 'store',type = 'string',
-                        dest = 'right_margin',default = 'centered',
-                        help = 'Right margin, distance from right border')
+		# Define string option "--right_margin"
+		self.OptionParser.add_option('--right_margin',
+		        action = 'store',type = 'string',
+		        dest = 'right_margin',default = 'centered',
+		        help = 'Right margin, distance from right border')
 
-                # Define string option "--top_margin"
-                self.OptionParser.add_option('--bottom_margin',
-                        action = 'store',type = 'string',
-                        dest = 'bottom_margin',default = 'centered',
-                        help = 'Bottom margin, distance from bottom border')
+		# Define string option "--top_margin"
+		self.OptionParser.add_option('--bottom_margin',
+		        action = 'store',type = 'string',
+		        dest = 'bottom_margin',default = 'centered',
+		        help = 'Bottom margin, distance from bottom border')
 
-                # Define string option "--left_margin"
-                self.OptionParser.add_option('--left_margin',
-                        action = 'store',type = 'string',
-                        dest = 'left_margin',default = 'centered',
-                        help = 'Left margin, distance from left border')
+		# Define string option "--left_margin"
+		self.OptionParser.add_option('--left_margin',
+		        action = 'store',type = 'string',
+		        dest = 'left_margin',default = 'centered',
+		        help = 'Left margin, distance from left border')
 
-        def effect(self):
+	def effect(self):
 
-                # Get script's options values. Input.
+		# Get script's options values. Input.
 
-                # boolean
-                same_margins = self.options.same_margins
-                # convert string to integer
-                top_margin = int(self.options.top_margin)
-                right_margin = int(self.options.right_margin)
-                bottom_margin = int(self.options.bottom_margin)
-                left_margin = int(self.options.left_margin)
+		# boolean
+		same_margins = self.options.same_margins
+		# convert string to integer
+		top_margin = int(self.options.top_margin)
+		right_margin = int(self.options.right_margin)
+		bottom_margin = int(self.options.bottom_margin)
+		left_margin = int(self.options.left_margin)
 
-                # getting parent tag of the guides
-                namedview = self.document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
+		# getting parent tag of the guides
+		namedview = self.document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
 
-                # getting the main SVG document element (canvas)
-                svg = self.document.getroot()
+		# getting the main SVG document element (canvas)
+		svg = self.document.getroot()
 
-                # getting the width and height attributes of the canvas
-                canvas_width  = inkex.unittouu(svg.get('width'))
-                canvas_height = inkex.unittouu(svg.attrib['height'])
+		# getting the width and height attributes of the canvas
+		canvas_width  = inkex.unittouu(svg.get('width'))
+		canvas_height = inkex.unittouu(svg.attrib['height'])
 
-                if same_margins:
-                        right_margin = top_margin
-                        bottom_margin = top_margin
-                        left_margin = top_margin
+		# Get selection bouding box - TODO
 
-                # start position of guides
-                top_pos = canvas_height - top_margin
-                right_pos = canvas_width - right_margin
-                bottom_pos = bottom_margin
-                left_pos = left_margin
+		# now let's use the input:
 
-                # Draw the four margin guides
-                drawGuide(top_pos, "horizontal", namedview)
-                drawGuide(right_pos, "vertical", namedview)
-                drawGuide(bottom_pos, "horizontal", namedview)
-                drawGuide(left_pos, "vertical", namedview)
+
+		if same_margins == True and top_margin == 0:
+			printError ("Zero margin guides are not drawn. To draw guides on the all borders, use Edit > Guides around page.")
+		else:
+			if same_margins:
+				right_margin = top_margin
+				bottom_margin = top_margin
+				left_margin = top_margin
+
+			# start position of guides
+			top_pos = canvas_height - top_margin
+			right_pos = canvas_width - right_margin
+			bottom_pos = bottom_margin
+			left_pos = left_margin
+
+			# Draw the four margin guides (if margin exists)
+			if top_pos != canvas_height:
+			        drawGuide(top_pos, "horizontal", namedview)
+			if right_pos != canvas_width:
+			        drawGuide(right_pos, "vertical", namedview)
+			if bottom_pos != 0:
+			        drawGuide(bottom_pos, "horizontal", namedview)
+			if left_pos != 0:
+			        drawGuide(left_pos, "vertical", namedview)
 
 
 # APPLY
