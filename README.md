@@ -9,9 +9,9 @@ These are a series of [Inkscape](http://inkscape.org/) extensions related to gui
 
 Three simple extensions:
 
-- remove all guides (may be part of core inkscape in upcoming version 0.49)
 - remove all horizontal guides
 - remove all vertical guides
+- remove all guides (made by [heathenx](http://screencasters.heathenx.org/blog/2009/06/09/inkscape-extension-remove-guides/), I've just moved the menu item; this functionality may become part of inkscape in upcoming version 0.49)
 
 ### 2. Add centered guides to the document
 
