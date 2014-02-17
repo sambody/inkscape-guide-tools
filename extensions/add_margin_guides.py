@@ -48,24 +48,24 @@ from simplestyle import *
 
 # To show debugging output
 def printDebug(string):
-        inkex.debug( _(str(string)) )
+	inkex.debug( _(str(string)) )
 
 # To show error to user
 def printError(string):
-        inkex.errormsg( _(str(string)) )
+	inkex.errormsg( _(str(string)) )
 
 # Draw single guide
 # parameters: position (single length), orientation ("horizontal/vertical"), parent
 def drawGuide(position, orientation, parent):
 
-        if orientation == "vertical":
-                orientationString = "1,0"
-                positionString = str(position) + ",0"
-        if orientation == "horizontal":
-                orientationString = "0,1"
-                positionString = "0," + str(position)
-        # Create a sodipodi:guide node
-        inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString})
+	if orientation == "vertical":
+		orientationString = "1,0"
+		positionString = str(position) + ",0"
+	if orientation == "horizontal":
+		orientationString = "0,1"
+		positionString = "0," + str(position)
+	# Create a sodipodi:guide node
+	inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString})
 
 
 # CLASS
@@ -82,39 +82,39 @@ class addCenteredGuides(inkex.Effect):
 
 		# Define boolean option "--include_hor_guide"
 		self.OptionParser.add_option('--same_margins',
-		        action = 'store', type = 'inkbool',
-		        dest = 'same_margins', default = False,
-		        help = 'Same margins on all four sides')
+				action = 'store', type = 'inkbool',
+				dest = 'same_margins', default = False,
+				help = 'Same margins on all four sides')
 
 		# Define string option "--top_margin"
 		self.OptionParser.add_option('--top_margin',
-		        action = 'store',type = 'string',
-		        dest = 'top_margin',default = 'centered',
-		        help = 'Top margin, distance from top border')
+				action = 'store',type = 'string',
+				dest = 'top_margin',default = 'centered',
+				help = 'Top margin, distance from top border')
 
 		# Define string option "--right_margin"
 		self.OptionParser.add_option('--right_margin',
-		        action = 'store',type = 'string',
-		        dest = 'right_margin',default = 'centered',
-		        help = 'Right margin, distance from right border')
+				action = 'store',type = 'string',
+				dest = 'right_margin',default = 'centered',
+				help = 'Right margin, distance from right border')
 
 		# Define string option "--top_margin"
 		self.OptionParser.add_option('--bottom_margin',
-		        action = 'store',type = 'string',
-		        dest = 'bottom_margin',default = 'centered',
-		        help = 'Bottom margin, distance from bottom border')
+				action = 'store',type = 'string',
+				dest = 'bottom_margin',default = 'centered',
+				help = 'Bottom margin, distance from bottom border')
 
 		# Define string option "--left_margin"
 		self.OptionParser.add_option('--left_margin',
-		        action = 'store',type = 'string',
-		        dest = 'left_margin',default = 'centered',
-		        help = 'Left margin, distance from left border')
+				action = 'store',type = 'string',
+				dest = 'left_margin',default = 'centered',
+				help = 'Left margin, distance from left border')
 
 		# Define boolean option "--add_border_guides"
 		self.OptionParser.add_option('--add_border_guides',
-		        action = 'store', type = 'inkbool',
-		        dest = 'add_border_guides', default = False,
-		        help = 'Add guides around page')
+				action = 'store', type = 'inkbool',
+				dest = 'add_border_guides', default = False,
+				help = 'Add guides around page')
 
 	def effect(self):
 

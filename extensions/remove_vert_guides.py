@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 '''
-Copyright 2014 Samuel Dellicour, but it's just a modification of
+Copyright 2014 Samuel Dellicour,
+This is actually a modified version of
 Remove All Guides extension, which is:
 Copyright (C) 2009 Richard Querin, screencasters@heathenx.org
 Copyright (C) 2009 heathenx, screencasters@heathenx.org
@@ -42,7 +43,7 @@ class remove_hor_guides(inkex.Effect):
 		for node in self.document.xpath("//sodipodi:guide", namespaces=inkex.NSS):
 			if (node.get('orientation') == '1,0'):
 				node.getparent().remove(node)
-																																												# Create effect instance.
+
+# Create effect instance.
 effect = remove_hor_guides()
 effect.affect()
-

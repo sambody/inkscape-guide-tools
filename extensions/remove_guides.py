@@ -39,7 +39,8 @@ class remove_guides(inkex.Effect):
 		# Find and delete guide node.
 		for node in self.document.xpath("//sodipodi:guide", namespaces=inkex.NSS):
 			node.getparent().remove(node)
-																																												# Create effect instance.
+
+# Create effect instance.
 effect = remove_guides()
 effect.affect()
 

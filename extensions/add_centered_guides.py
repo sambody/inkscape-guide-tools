@@ -48,24 +48,28 @@ from simplestyle import *
 
 # To show debugging output
 def printDebug(string):
-        inkex.debug( _(str(string)) )
+	inkex.debug( _(str(string)) )
 
 # To show error to user
 def printError(string):
-        inkex.errormsg( _(str(string)) )
+	inkex.errormsg( _(str(string)) )
+
+def die(msg):
+	inkex.errormsg(msg)
+	sys.exit(1)
 
 # Draw single guide
 # parameters: position (single length), orientation ("horizontal/vertical"), parent
 def drawGuide(position, orientation, parent):
 
-        if orientation == "vertical":
-                orientationString = "1,0"
-                positionString = str(position) + ",0"
-        if orientation == "horizontal":
-                orientationString = "0,1"
-                positionString = "0," + str(position)
-        # Create a sodipodi:guide node
-        inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString})
+	if orientation == "vertical":
+		orientationString = "1,0"
+		positionString = str(position) + ",0"
+	if orientation == "horizontal":
+		orientationString = "0,1"
+		positionString = "0," + str(position)
+	# Create a sodipodi:guide node
+	inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString})
 
 def drawCenteredGuides(positionX, positionY, include_hor, include_vert, parent):
 
@@ -80,49 +84,49 @@ def drawCenteredGuides(positionX, positionY, include_hor, include_vert, parent):
 
 class addCenteredGuides(inkex.Effect):
 
-        def __init__(self):
-                """
-                Constructor.
-                Defines options of the script.
-                """
-                # Call the base class constructor.
-                inkex.Effect.__init__(self)
+	def __init__(self):
+		"""
+		Constructor.
+		Defines options of the script.
+		"""
+		# Call the base class constructor.
+		inkex.Effect.__init__(self)
 
-                # Define boolean option "--include_hor_guide"
-                self.OptionParser.add_option('--include_hor_guide',
-                        action = 'store', type = 'inkbool',
-                        dest = 'include_hor_guide', default = False,
-                        help = 'Include centered horizontal guide')
+		# Define boolean option "--include_hor_guide"
+		self.OptionParser.add_option('--include_hor_guide',
+			action = 'store', type = 'inkbool',
+			dest = 'include_hor_guide', default = False,
+			help = 'Include centered horizontal guide')
 
-                # Define boolean option "--include_vert_guide"
-                self.OptionParser.add_option('--include_vert_guide',
-                        action = 'store', type = 'inkbool',
-                        dest = 'include_vert_guide', default = False,
-                        help = 'Include centered vertical guide')
+		# Define boolean option "--include_vert_guide"
+		self.OptionParser.add_option('--include_vert_guide',
+			action = 'store', type = 'inkbool',
+			dest = 'include_vert_guide', default = False,
+			help = 'Include centered vertical guide')
 
-        def effect(self):
+	def effect(self):
 
-                # Get script's options values. Input.
+		# Get script's options values. Input.
 
-                include_hor = self.options.include_hor_guide
-                include_vert = self.options.include_vert_guide
+		include_hor = self.options.include_hor_guide
+		include_vert = self.options.include_vert_guide
 
-                # getting parent tag of the guides
-                namedview = self.document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
+		# getting parent tag of the guides
+		namedview = self.document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
 
-                # getting the main SVG document element (canvas)
-                svg = self.document.getroot()
+		# getting the main SVG document element (canvas)
+		svg = self.document.getroot()
 
-                # getting the width and height attributes of the canvas
-                canvas_width  = inkex.unittouu(svg.get('width'))
-                canvas_height = inkex.unittouu(svg.attrib['height'])
+		# getting the width and height attributes of the canvas
+		canvas_width  = inkex.unittouu(svg.get('width'))
+		canvas_height = inkex.unittouu(svg.attrib['height'])
 
-                # calculate center of document
-                center_pos_x = canvas_width/2
-                center_pos_y = canvas_height/2
+		# calculate center of document
+		center_pos_x = canvas_width/2
+		center_pos_y = canvas_height/2
 
-                # call the function. Output.
-                drawCenteredGuides(center_pos_x, center_pos_y, include_hor, include_vert, namedview)
+		# call the function. Output.
+		drawCenteredGuides(center_pos_x, center_pos_y, include_hor, include_vert, namedview)
 
 
 # APPLY
