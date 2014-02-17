@@ -23,9 +23,9 @@ With this extension you can
 
 (add centered guides to selection/bounding box coming soon)
 
-### 3. Add guides to borders to document, with optional offset on every sides
+### 3. Add margin guides to document
 
-(coming soon)
+Add guides at a certain distance (margin) from the borders of the document. Margins can be equal or different for every side.
 
 ### How to install the extensions
 
