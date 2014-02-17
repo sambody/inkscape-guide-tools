@@ -23,12 +23,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 # # # extension's begining # # #
 
+
 # IMPORT
 
-## These two lines are only needed if you don't put the script directly into
-## the installation directory
-# import sys
-# sys.path.append('/usr/share/inkscape/extensions')
 
 ## We will use the inkex module with the predefined Effect base class.
 import inkex, os
@@ -42,9 +39,9 @@ _ = gettext.gettext
 
 from simplestyle import *
 
-# from xml.etree import ElementTree as ET
 
 # FUNCTIONS
+
 
 # To show debugging output
 def printDebug(string):
@@ -61,14 +58,17 @@ def drawGuide(position, orientation, parent):
 	if orientation == "vertical":
 		orientationString = "1,0"
 		positionString = str(position) + ",0"
+
 	if orientation == "horizontal":
 		orientationString = "0,1"
 		positionString = "0," + str(position)
+
 	# Create a sodipodi:guide node
 	inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString})
 
 
 # CLASS
+
 
 class addCenteredGuides(inkex.Effect):
 
@@ -123,6 +123,7 @@ class addCenteredGuides(inkex.Effect):
 		# boolean
 		same_margins = self.options.same_margins
 		add_border_guides = self.options.add_border_guides
+
 		# convert string to integer
 		top_margin = int(self.options.top_margin)
 		right_margin = int(self.options.right_margin)
@@ -145,8 +146,11 @@ class addCenteredGuides(inkex.Effect):
 
 		# draw margin guides (if not zero)
 		if same_margins == True and top_margin == 0:
+
 			printError (_("Zero margin guides are not drawn. To draw guides on the all borders, use Edit > Guides around page."))
+
 		else:
+
 			if same_margins:
 				right_margin = top_margin
 				bottom_margin = top_margin
@@ -161,24 +165,28 @@ class addCenteredGuides(inkex.Effect):
 			# Draw the four margin guides (if margin exists)
 			if top_pos != canvas_height:
 				drawGuide(top_pos, "horizontal", namedview)
+
 			if right_pos != canvas_width:
 				drawGuide(right_pos, "vertical", namedview)
+
 			if bottom_pos != 0:
 				drawGuide(bottom_pos, "horizontal", namedview)
+
 			if left_pos != 0:
 				drawGuide(left_pos, "vertical", namedview)
 
 		# draw guides around page, if checked
 		if add_border_guides:
+
 			drawGuide(canvas_height, "horizontal", namedview)
 			drawGuide(canvas_width, "vertical", namedview)
 			drawGuide(0, "horizontal", namedview)
 			drawGuide(0, "vertical", namedview)
 
+
 # APPLY
+
 
 # Create effect instance and apply it. Taking in SVG, changing it, and then outputing SVG
 effect = addCenteredGuides()
 effect.affect()
-
-## end of file extensions_bootstrap.py ##

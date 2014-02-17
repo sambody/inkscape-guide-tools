@@ -23,12 +23,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 # # # extension's begining # # #
 
+
 # IMPORT
 
-## These two lines are only needed if you don't put the script directly into
-## the installation directory
-# import sys
-# sys.path.append('/usr/share/inkscape/extensions')
 
 ## We will use the inkex module with the predefined Effect base class.
 import inkex
@@ -36,21 +33,20 @@ import inkex
 # Allow translation
 import gettext
 _ = gettext.gettext
-## Probable change for 0.49. Allow translation with this instead
+# Probable change for 0.49. Allow translation with this instead
 # import inkex
 # inkex.localize()
 
 from simplestyle import *
 
-# from xml.etree import ElementTree as ET
 
 # FUNCTIONS
 
-# To show debugging output
+
+# To show debugging output, error messages
 def printDebug(string):
 	inkex.debug( _(str(string)) )
 
-# To show error to user
 def printError(string):
 	inkex.errormsg( _(str(string)) )
 
@@ -65,9 +61,11 @@ def drawGuide(position, orientation, parent):
 	if orientation == "vertical":
 		orientationString = "1,0"
 		positionString = str(position) + ",0"
+
 	if orientation == "horizontal":
 		orientationString = "0,1"
 		positionString = "0," + str(position)
+
 	# Create a sodipodi:guide node
 	inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString})
 
@@ -81,6 +79,7 @@ def drawCenteredGuides(positionX, positionY, include_hor, include_vert, parent):
 
 
 # CLASS
+
 
 class addCenteredGuides(inkex.Effect):
 
@@ -131,8 +130,7 @@ class addCenteredGuides(inkex.Effect):
 
 # APPLY
 
+
 # Create effect instance and apply it. Taking in SVG, changing it, and then outputing SVG
 effect = addCenteredGuides()
 effect.affect()
-
-## end of file extensions_bootstrap.py ##

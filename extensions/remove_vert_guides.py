@@ -34,11 +34,14 @@ sys.path.append('C:\Program Files\Inkscape\share\extensions')
 import inkex
 
 class remove_hor_guides(inkex.Effect):
+
 	def __init__(self):
+
 		# Call the base class constructor.
 		inkex.Effect.__init__(self)
 
 	def effect(self):
+
 		# Find and delete guide node.
 		for node in self.document.xpath("//sodipodi:guide", namespaces=inkex.NSS):
 			if (node.get('orientation') == '1,0'):
