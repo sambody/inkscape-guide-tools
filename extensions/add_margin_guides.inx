@@ -7,9 +7,11 @@
 		<param name="same_margins"  type="boolean"  _gui-text="Same margins on all four sides">true</param>
 		<param name="same_margins_info" type="description">If "Same margins" is checked, only the value of top margin will be used. </param>
 		<param name="top_margin"  type="int"   min="-1000" max="1000" _gui-text="Top margin">10</param>
-		<param name="right_margin"  type="int"   min="-1000" max="1000" _gui-text="Right margin">0</param>
 		<param name="bottom_margin"  type="int"   min="-1000" max="1000" _gui-text="Bottom margin">0</param>
 		<param name="left_margin"  type="int"   min="-1000" max="1000" _gui-text="Left margin">0</param>
+		<param name="right_margin"  type="int"   min="-1000" max="1000" _gui-text="Right margin">0</param>
+		<param name="separator" type="description">- - - - -</param>
+		<param name="add_border_guides"  type="boolean"  _gui-text="Add additional guides around page">false</param>
 
 	<effect>
 		<object-type>all</object-type>

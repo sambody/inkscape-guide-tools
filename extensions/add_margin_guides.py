@@ -110,12 +110,19 @@ class addCenteredGuides(inkex.Effect):
 		        dest = 'left_margin',default = 'centered',
 		        help = 'Left margin, distance from left border')
 
+		# Define boolean option "--add_border_guides"
+		self.OptionParser.add_option('--add_border_guides',
+		        action = 'store', type = 'inkbool',
+		        dest = 'add_border_guides', default = False,
+		        help = 'Add guides around page')
+
 	def effect(self):
 
 		# Get script's options values. Input.
 
 		# boolean
 		same_margins = self.options.same_margins
+		add_border_guides = self.options.add_border_guides
 		# convert string to integer
 		top_margin = int(self.options.top_margin)
 		right_margin = int(self.options.right_margin)
@@ -136,7 +143,7 @@ class addCenteredGuides(inkex.Effect):
 
 		# now let's use the input:
 
-
+		# draw margin guides (if not zero)
 		if same_margins == True and top_margin == 0:
 			printError ("Zero margin guides are not drawn. To draw guides on the all borders, use Edit > Guides around page.")
 		else:
@@ -153,14 +160,20 @@ class addCenteredGuides(inkex.Effect):
 
 			# Draw the four margin guides (if margin exists)
 			if top_pos != canvas_height:
-			        drawGuide(top_pos, "horizontal", namedview)
+				drawGuide(top_pos, "horizontal", namedview)
 			if right_pos != canvas_width:
-			        drawGuide(right_pos, "vertical", namedview)
+				drawGuide(right_pos, "vertical", namedview)
 			if bottom_pos != 0:
-			        drawGuide(bottom_pos, "horizontal", namedview)
+				drawGuide(bottom_pos, "horizontal", namedview)
 			if left_pos != 0:
-			        drawGuide(left_pos, "vertical", namedview)
+				drawGuide(left_pos, "vertical", namedview)
 
+		# draw guides around page, if checked
+		if add_border_guides:
+			drawGuide(canvas_height, "horizontal", namedview)
+			drawGuide(canvas_width, "vertical", namedview)
+			drawGuide(0, "horizontal", namedview)
+			drawGuide(0, "vertical", namedview)
 
 # APPLY
 
