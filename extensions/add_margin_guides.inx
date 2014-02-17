@@ -1,0 +1,23 @@
+<inkscape-extension>
+	<_name>Add margin guides</_name>
+	<id>samplify.add_margin_guides</id>
+	<dependency type="executable" location="extensions">add_margin_guides.py</dependency>
+
+		<param name="extension_description" type="description">Add document margin guides: guides at a certain distance from the borders of the document.</param>
+		<param name="same_margins"  type="boolean"  _gui-text="Same margins on all four sides">true</param>
+		<param name="same_margins_info" type="description">If "Same margins" is checked, only the value of top margin will be used</param>
+		<param name="top_margin"  type="int"   min="-1000" max="1000" _gui-text="Top margin">10</param>
+		<param name="right_margin"  type="int"   min="-1000" max="1000" _gui-text="Right margin">0</param>
+		<param name="bottom_margin"  type="int"   min="-1000" max="1000" _gui-text="Bottom margin">0</param>
+		<param name="left_margin"  type="int"   min="-1000" max="1000" _gui-text="Left margin">0</param>
+
+	<effect>
+		<object-type>all</object-type>
+		<effects-menu>
+			<submenu _name="Guides"/>
+		</effects-menu>
+	</effect>
+	<script>
+		<command reldir="extensions" interpreter="python">add_margin_guides.py</command>
+	</script>
+</inkscape-extension>
