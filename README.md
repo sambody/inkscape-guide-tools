@@ -46,11 +46,11 @@ The extensions will all be available in the menu under **Extensions > Guide**
 Other guides related extensions for Inkscape:
 
 - The [Inkscape Grid Maker extension](https://github.com/sambody/inkscape-grid-maker), which I made to generate guides in a grid of columns/rows with gutters - useful for web design for example.
-- Guides Creator (part of Inkscape by default), by Jonas Termeau - to divide your document into equal parts, or in proportional parts (rule of thirds, golden rule). Limited to 10 divisions, no gutters. I've used that extension as a base to make my extensions, so thanks to Jonas' work.
+- [Guides Creator](http://code.google.com/p/inkscape-guides-creator/) (part of Inkscape by default), by Jonas Termeau - to divide your document into equal parts, or in proportional parts (rule of thirds, golden rule). Limited to 10 divisions, no gutters. I've used that extension as a base to make my extensions, so thanks to Jonas' work.
 
 ### Tips
 
-- You can add a keyboard shortcut to any extension. (todo: step by step instructions; for now google it)
+- You can add a keyboard shortcut to an extension. (todo: step by step instructions; for now google it)
 
 ### News
 
