@@ -17,13 +17,9 @@ Three simple extensions:
 
 With this extension you can add a horizontal and/or a vertical guide through the center of the document.
 
-(add centered guides to selection/bounding box coming soon)
-
 ### 3. Add margin guides to document
 
-Add guides at a certain distance (margin) from the borders of the document. Add them all at once (for equal margins) or separately. Margins can be negative for guides outside the page borders. With additional option to add guides around the page (on all the borders).
-
-Inkscape allows you to add guides exactly on the borders of the page, with Edit > Guides around page. With this extension however, you can add guides around the page with a certain offset (margin), inside or outside the page.
+Inkscape allows you to add guides exactly on the borders of the page, with Edit > Guides around page. With this extension however, you can add guides at a certain distance (margin) from the borders of the document. Add them all at once (for equal margins) or separately. Margins can be negative for guides outside the page borders. Zero margin guides are not drawn.
 
 ### How to install the extensions
 
