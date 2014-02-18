@@ -10,13 +10,19 @@ These are a series of [Inkscape](http://inkscape.org/) extensions related to gui
 - Remove All Guides (no user interface) - actually made by heathenx, bundled here with his permission. See [this blog post](http://screencasters.heathenx.org/blog/2009/06/09/inkscape-extension-remove-guides/) and [this forum topic](https://www.ruby-forum.com/topic/188929). I've just moved the menu item to Extensions > Guides; this functionality may become part of inkscape in upcoming version 0.49
 - Remove Selected Guides: remove all horizontal and/or vertical and/or angled (diagonal) guides. Based on heathenx's extension.
 
+![Remove selected guides](img/remove.png)
+
 ### 2. Add centered guides to the document
 
-With this extension you can add a horizontal and/or a vertical guide through the center of the document.
+With this extension you can quickly add a horizontal and/or a vertical guide through the center of the document.
+
+![Add centered guides](img/centered.png)
 
 ### 3. Add margin guides to document
 
 Inkscape allows you to add guides exactly on the borders of the page, with Edit > Guides around page. With this extension however, you can add guides at a certain distance (margin) from the borders of the document. Add them all at once (for equal margins) or separately. Margins can be negative for guides outside the page borders. Zero margin guides are not drawn.
+
+![Add margin guides](img/margins.png)
 
 ### How to install the extensions
 
