@@ -21,22 +21,12 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 '''
 
-# # # extension's begining # # #
-
-
 # IMPORT
 
 
-## We will use the inkex module with the predefined Effect base class.
 import inkex
-
-# Allow translation
 import gettext
 _ = gettext.gettext
-# Probable change for 0.49. Allow translation with this instead
-# import inkex
-# inkex.localize()
-
 from simplestyle import *
 
 
@@ -71,11 +61,8 @@ def drawGuide(position, orientation, parent):
 
 def drawCenteredGuides(positionX, positionY, include_hor, include_vert, parent):
 
-	if include_hor:
-		drawGuide(positionY, "horizontal", parent)
-
-	if include_vert:
-		drawGuide(positionX, "vertical", parent)
+	if include_hor: drawGuide(positionY, "horizontal", parent)
+	if include_vert: drawGuide(positionX, "vertical", parent)
 
 
 # CLASS

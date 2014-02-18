@@ -21,22 +21,13 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 '''
 
-# # # extension's begining # # #
-
 
 # IMPORT
 
 
-## We will use the inkex module with the predefined Effect base class.
 import inkex, os
-
-# Allow translation
 import gettext
 _ = gettext.gettext
-## Probable change for 0.49. Allow translation with this instead
-# import inkex
-# inkex.localize()
-
 from simplestyle import *
 
 
@@ -146,11 +137,8 @@ class addCenteredGuides(inkex.Effect):
 
 		# draw margin guides (if not zero)
 		if same_margins == True and top_margin == 0:
-
 			printError (_("Zero margin guides are not drawn. To draw guides on the all borders, use Edit > Guides around page."))
-
 		else:
-
 			if same_margins:
 				right_margin = top_margin
 				bottom_margin = top_margin
@@ -163,17 +151,10 @@ class addCenteredGuides(inkex.Effect):
 			left_pos = left_margin
 
 			# Draw the four margin guides (if margin exists)
-			if top_pos != canvas_height:
-				drawGuide(top_pos, "horizontal", namedview)
-
-			if right_pos != canvas_width:
-				drawGuide(right_pos, "vertical", namedview)
-
-			if bottom_pos != 0:
-				drawGuide(bottom_pos, "horizontal", namedview)
-
-			if left_pos != 0:
-				drawGuide(left_pos, "vertical", namedview)
+			if top_pos != canvas_height: drawGuide(top_pos, "horizontal", namedview)
+			if right_pos != canvas_width: drawGuide(right_pos, "vertical", namedview)
+			if bottom_pos != 0: drawGuide(bottom_pos, "horizontal", namedview)
+			if left_pos != 0: drawGuide(left_pos, "vertical", namedview)
 
 		# draw guides around page, if checked
 		if add_border_guides:
