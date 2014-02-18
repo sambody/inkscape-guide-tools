@@ -44,12 +44,11 @@ The extensions will all be available in the menu under **Extensions > Guide**
 
 Need to create guides in a grid of columns (or rows) with gutters? See the [Inkscape Grid Maker extension](https://github.com/sambody/inkscape-grid-maker), which I made for that purpose - useful for web design for example. 
 
-To divide your document into equal parts (with no gutters), you could use [Guides Creator](http://code.google.com/p/inkscape-guides-creator/) (part of Inkscape by default), by Jonas Termeau. With option for proportional divisions (rule of thirds, golden rule). Limited to 10 divisions, no gutters, no margins. 
-
 ### Tips
 
-- You can add a keyboard shortcut to an extension. (todo: step by step instructions; for now google it)
-- To add guides on the borders of your page, go to Edit > Guides Around the Page
+- To add guides on the borders of your page, go to *Edit > Guides Around the Page*
+- To divide your document into equal parts (with no gutters), you could use [Guides Creator](http://code.google.com/p/inkscape-guides-creator/) (part of Inkscape by default), by Jonas Termeau. With option for proportional divisions (rule of thirds, golden rule). Limited to 10 divisions, no gutters, no margins. 
+- You can add a keyboard shortcut to an inkscape extension by hand. (todo: step by step instructions; for now google it)
 
 ### News
 
