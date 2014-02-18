@@ -32,20 +32,46 @@ sys.path.append('C:\Program Files\Inkscape\share\extensions')
 
 import inkex
 
-class remove_hor_guides(inkex.Effect):
+class remove_selected_guides(inkex.Effect):
 
 	def __init__(self):
 
 		# Call the base class constructor.
 		inkex.Effect.__init__(self)
 
+		self.OptionParser.add_option('--remove_hor_guide',
+			action = 'store', type = 'inkbool',
+			dest = 'remove_hor_guide', default = False,
+			help = 'Remove all horizontal guides')
+
+		self.OptionParser.add_option('--remove_vert_guide',
+			action = 'store', type = 'inkbool',
+			dest = 'remove_vert_guide', default = False,
+			help = 'Remove all vertical guides')
+
+		self.OptionParser.add_option('--remove_ang_guide',
+			action = 'store', type = 'inkbool',
+			dest = 'remove_ang_guide', default = False,
+			help = 'Remove all angled guides')
+
+
 	def effect(self):
+
+		# get options
+		remove_hor_guide = self.options.remove_hor_guide
+		remove_vert_guide = self.options.remove_vert_guide
+		remove_ang_guide = self.options.remove_ang_guide
 
 		# Find and delete guide node.
 		for node in self.document.xpath("//sodipodi:guide", namespaces=inkex.NSS):
-			if (node.get('orientation') == '0,1'):
+			if remove_hor_guide and (node.get('orientation') == '0,1'):
+				node.getparent().remove(node)
+			if remove_vert_guide and (node.get('orientation') == '1,0'):
+				node.getparent().remove(node)
+			if remove_ang_guide and (node.get('orientation') != '0,1') and (node.get('orientation') != '1,0'):
 				node.getparent().remove(node)
 
+
 # Create effect instance.
-effect = remove_hor_guides()
+effect = remove_selected_guides()
 effect.affect()
