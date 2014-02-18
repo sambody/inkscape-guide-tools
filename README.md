@@ -5,13 +5,10 @@ These are a series of [Inkscape](http://inkscape.org/) extensions related to gui
 
 ### The current extensions are:
 
-### 1. Remove guides
+### 1. Remove all or selected guides
 
-Three simple extensions:
-
-- remove all guides - actually made by heathenx, bundled here with his permission. See [this blog post](http://screencasters.heathenx.org/blog/2009/06/09/inkscape-extension-remove-guides/) and [this forum topic](https://www.ruby-forum.com/topic/188929). I've just moved the menu item to Extensions > Guides; this functionality may become part of inkscape in upcoming version 0.49
-- remove all horizontal guides (based on heathex' extension)
-- remove all vertical guides (same)
+- Remove All Guides (no user interface) - actually made by heathenx, bundled here with his permission. See [this blog post](http://screencasters.heathenx.org/blog/2009/06/09/inkscape-extension-remove-guides/) and [this forum topic](https://www.ruby-forum.com/topic/188929). I've just moved the menu item to Extensions > Guides; this functionality may become part of inkscape in upcoming version 0.49
+- Remove Selected Guides: remove all horizontal and/or vertical and/or angled (diagonal) guides. Based on heathenx's extension.
 
 ### 2. Add centered guides to the document
 
