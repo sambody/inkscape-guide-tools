@@ -1,5 +1,5 @@
 <inkscape-extension>
-	<_name>Add margin guides around page</_name>
+	<_name>Add Margin Guides Around Page</_name>
 	<id>samplify.add_margin_guides</id>
 	<dependency type="executable" location="extensions">add_margin_guides.py</dependency>
 
