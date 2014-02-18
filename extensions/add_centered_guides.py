@@ -40,10 +40,6 @@ def printDebug(string):
 def printError(string):
 	inkex.errormsg( _(str(string)) )
 
-def die(msg):
-	inkex.errormsg(msg)
-	sys.exit(1)
-
 # Draw single guide
 # parameters: position (single length), orientation ("horizontal/vertical"), parent
 def drawGuide(position, orientation, parent):
