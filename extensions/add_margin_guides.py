@@ -109,10 +109,10 @@ class addCenteredGuides(inkex.Effect):
 		same_margins = self.options.same_margins
 
 		# convert string to integer
-		top_margin = int(self.options.top_margin)
-		right_margin = int(self.options.right_margin)
-		bottom_margin = int(self.options.bottom_margin)
-		left_margin = int(self.options.left_margin)
+		top_margin = float(self.options.top_margin)
+		right_margin = float(self.options.right_margin)
+		bottom_margin = float(self.options.bottom_margin)
+		left_margin = float(self.options.left_margin)
 
 		# getting parent tag of the guides
 		namedview = self.document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
