@@ -61,7 +61,7 @@ def drawGuide(position, orientation, parent):
 # CLASS
 
 
-class addCenteredGuides(inkex.Effect):
+class addMarginGuides(inkex.Effect):
 
 	def __init__(self):
 		"""
@@ -151,5 +151,5 @@ class addCenteredGuides(inkex.Effect):
 
 
 # Create effect instance and apply it. Taking in SVG, changing it, and then outputing SVG
-effect = addCenteredGuides()
+effect = addMarginGuides()
 effect.affect()
