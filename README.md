@@ -115,6 +115,14 @@ For example, this will add the shortcut Ctrl-Shift-Alt-G to add centered guides:
 
 Note: you may want to check first to see if the new keyboard shortcuts already exist in your file or in the default shortcuts file.
 
+### What's next
+
+- It would be nice to also make an "outside in" grid building extension - where you would set a _total width_, a gutter width, and number of columns, and the extension would calculate the columns width and draw the guides. The total width could be defined by a number, or by the document (with or without margins), or by the bounding box of a selection...
+- It would be nice if the Margin guides and Centered guides would work _on selected objects_ instead of on the document.
+- The Add Grid Guides should be able to work with other units than pixels. And should not always have to be on round pixel positions.
+
+I was thinking of putting all extensions in one single extension, but I'm not sure. It's nice to get directly to the extension you need, especially if you set a keyboard shortcut for it. And having a long row of tabs in an extension is not ideal. So for now, I keep them separate.
+
 ### Licence
 
 These guide extensions are licenced under the GPL v2, just like Inkscape.
