@@ -8,7 +8,8 @@ These are a series of [Inkscape](http://inkscape.org/) extensions related to gui
 1. Add centered guides
 2. Add margin guides
 3. Add grid guides (formerly Grid Maker)
-4. Remove guides (all or selectively)
+4. Remove all guides
+5. Remove selected guides
 
 ### 1. Add centered guides to the document
 
@@ -60,12 +61,17 @@ _Tips:_
 _Limitations:_
 
 - Not tested with other units than pixels. It is made to set guides on round position numbers (ie. at position 24, not 24.35)
-- The grid is calculated "inside out" - from the _column width_, gutter width and number of columns, the guides are drawn. It currently cannot draw the guides "outside in" - from a predefined total width, a gutter width and number of columns, calculate the columns width and draw the guides... Would be a useful addition.
+- The grid is calculated "inside out" - from the _column width_, gutter width and number of columns, the guides are drawn. It currently cannot draw the guides "outside in" - from a _predefined total width_, a gutter width and number of columns, calculate the columns width and draw the guides... Would be a useful addition.
 
-### 4. Remove all or selected guides
+### 4. Remove all guides
 
-- **Remove All Guides** (no user interface) - actually made by heathenx, bundled here with his permission. See [this blog post](http://screencasters.heathenx.org/blog/2009/06/09/inkscape-extension-remove-guides/) and [this forum topic](https://www.ruby-forum.com/topic/188929). I've just moved the menu item to Extensions > Guides; this functionality may become part of inkscape in upcoming version 0.49
-- **Remove Selected Guides**: Selectively remove all horizontal and/or vertical and/or angled (diagonal) guides. Based on heathenx's extension _Remove all guides_.
+This extension is actually made by heathenx, bundled here with his permission. See [this blog post](http://screencasters.heathenx.org/blog/2009/06/09/inkscape-extension-remove-guides/) and [this forum topic](https://www.ruby-forum.com/topic/188929). I've just moved the extension's menu item to Extensions > Guides; this functionality may become part of inkscape in upcoming version 0.49
+
+(no user interface, so no screenshot) 
+
+### 5. Remove selected guides
+
+Selectively remove all horizontal and/or vertical and/or angled (diagonal) guides. Based on heathenx's extension _Remove all guides_.
 
 ![Remove selected guides](img/remove.png)
 
