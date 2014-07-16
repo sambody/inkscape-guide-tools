@@ -5,6 +5,11 @@ These are a series of [Inkscape](http://inkscape.org/) extensions related to gui
 
 ### The current extensions are:
 
+1. Add centered guides
+2. Add margin guides
+3. Add grid guides (formerly Grid Maker)
+4. Remove guides (all or selectively)
+
 ### 1. Add centered guides to the document
 
 With this extension you can quickly add a horizontal and/or vertical guide through the center of the document.
@@ -35,30 +40,27 @@ This extension will generate guides in a grid of **equal width columns (or rows)
 
 This extension was conceived as a tool for grids in designing websites in Inkscape. The guides are therefore positioned using pixels, and use rounded numbers (they are set on the pixel). Not tested with other units. 
 
-_With this extension, you can...__
+_With this extension, you can..._
 
 - create **columns** with gutters (vertical guides), and **rows** with gutters (horizontal guides);
 - **define the number of columns, the column width and gutter width** to generate a grid; same with rows;
-- generate evenly spaced guides *without* gutters by setting gutter width to 0;
+- generate **evenly spaced guides** *without* gutters by setting gutter width to 0;
 - choose to align the grid in relation to the page: left aligned, centered or right aligned;
 - optionnally add an extra horizontal/vertical offset, for example to generate the grid at a certain distance from the page border (when left/right aligned); this offset can be negative; for columns, this offset is a shift to the right (when positive), for rows it is a shift down (when positive)
 - optionnally delete all existing horizontal/vertical guides before generating the new guides;
 - see a preview using Live preview, to test different widths.
 
-_Tips:__
+_Tips:_
 
 - You can generate **multiple grids** on top of each other, by applying grids several times. Just be sure to uncheck "*Delete existing guides*". 
 - Need guides in the middle of your gutters? After generating the columns (with gutters set to *even* number), generate a new grid with gutters set to zero, column width set to [original column width + gutter width]. If you need guides on round pixels, use an even number for gutter width.
-- You can position several generated **grids side by side** using a very large offset.
+- You can generate **grids side by side** by using a very large offset.
 - Need a **baseline grid** in addition to the generated columns ? Use Inkscape's grids under File > Document Properties > Grids. Set a new rectangular grid with for example Spacing X = 2000, Spacing Y = 14.
 
-_Other grid tools for web design:__
+_Limitations:_
 
-Online grid generators and previewers - I sometimes use them to get the right widths *before* using my extension: 
-
-- [grid calculator](http://www.29digital.net/grid/)
-- [variable grid system](http://grids.heroku.com/) - can actually generate css classes, just input the same numbers you used for designing your grid (fluid and fixed grid)
-- [grid calculator and generator](Grid calculator and generator) - set a fixed total width, give a range of column/gutter width, get possible combinations
+- Not tested with other units than pixels. It is made to set guides on round position numbers (ie. at position 24, not 24.35)
+- The grid is calculated "inside out" - from the _column width_, gutter width and number of columns, the guides are drawn. It currently cannot draw the guides "outside in" - from a predefined total width, a gutter width and number of columns, calculate the columns width and draw the guides... Would be a useful addition.
 
 ### 4. Remove all or selected guides
 
@@ -83,13 +85,8 @@ Restart or open Inkscape.
 
 The extensions will all be available in the menu under **Extensions > Guide**.
 
-### Guides in a grid - columns and rows with gutters
-
-Need to create guides in a grid of columns (or rows) with gutters? See the [Inkscape Grid Maker extension](https://github.com/sambody/inkscape-grid-maker), which I made for that purpose - useful for web design for example. 
-
 ### Tips
 
-- To add guides on the borders of your page, go to *Edit > Guides Around the Page*
 - To divide your document into equal parts (with no gutters), you could use [Guides Creator](http://code.google.com/p/inkscape-guides-creator/) (part of Inkscape by default, located under Extensions > Render > Guides Creator). With option for proportional divisions (rule of thirds, golden rule). Limited to maximum 10 divisions, no gutters, no margins. 
 - You can add a keyboard shortcut to any inkscape extension (manually, by editing an xml file with user keyboard shortcuts)
 
@@ -101,6 +98,8 @@ For example, this will add the shortcut Ctrl-Shift-Alt-G to add centered guides.
 
 `<bind action="samplify.add_margin_guides" display="true"/>`
 
+`<bind action="samplify.add_grid_guides" display="true"/>`
+
 `<bind action="samplify.remove_guides" display="true"/>`
 
 `<bind action="samplify.remove_selected_guides" display="true"/>`
@@ -108,9 +107,8 @@ For example, this will add the shortcut Ctrl-Shift-Alt-G to add centered guides.
 Note: you may want to check first to see if the new keyboard shortcuts already exist in your file or in the default shortcuts file.
 
 
-
 ### Licence
 
-These guide extensions are licenced under the GPL v2.
+These guide extensions are licenced under the GPL v2, just like Inkscape.
 
 Author: Samuel Dellicour
