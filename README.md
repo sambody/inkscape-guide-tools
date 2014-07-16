@@ -123,6 +123,8 @@ Note: you may want to check first to see if the new keyboard shortcuts already e
 
 I was thinking of putting all extensions in one single extension, but I'm not sure. It's nice to get directly to the extension you need, especially if you set a keyboard shortcut for it. And having a long row of tabs in an extension is not ideal. So for now, I keep them separate.
 
+I really like the fact that they are grouped under the label Guides (under Extensions). Unlike the Grid Creator, which is under Extensions > Render...
+
 ### Licence
 
 These guide extensions are licenced under the GPL v2, just like Inkscape.
