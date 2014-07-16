@@ -57,9 +57,12 @@ Example: Add one of these in your [user shortcuts files](http://wiki.inkscape.or
 For example, this will add the shortcut Ctrl-Shift-Alt-G to add centered guides.
 
 `<bind key="G" modifiers="Ctrl,Alt,Shift" action="samplify.add_centered_guides" display="true"/>  
+
 <bind action="samplify.add_margin_guides" display="true"/>  
-<bind action="remove_guides" display="true"/>  
-<bind action="remove_selected_guides" display="true"/>`
+
+<bind action="samplify.remove_guides" display="true"/>  
+
+<bind action="samplify.remove_selected_guides" display="true"/>`
 
 Note: you may want to check first to see if the new keyboard shortcuts already exist in your file or in the default shortcuts file.
 
