@@ -11,6 +11,8 @@ With this extension you can quickly add a horizontal and/or vertical guide throu
 
 ![Add centered guides](img/centered.png)
 
+Note: For web images, set your document to a width/height with even numbers, so that the guides fall on a round pixel position.
+
 ### 2. Add margin guides to document
 
 Inkscape already allows you to add guides _exactly_ on the borders of the page, with **Edit > Guides around page**. 
