@@ -91,14 +91,17 @@ Restart or open Inkscape.
 
 The extensions will all be available in the menu under **Extensions > Guide**.
 
-### Tips
+### Tip: Dividing a document
 
-- To divide your document into equal parts (with no gutters), you could use [Guides Creator](http://code.google.com/p/inkscape-guides-creator/) (part of Inkscape by default, located under Extensions > Render > Guides Creator). With option for proportional divisions (rule of thirds, golden rule). Limited to maximum 10 divisions, no gutters, no margins. 
-- You can add a keyboard shortcut to any inkscape extension (manually, by editing an xml file with user keyboard shortcuts)
+To divide your document into equal parts (with no gutters), you could use [Guides Creator](http://code.google.com/p/inkscape-guides-creator/) (part of Inkscape by default, located under Extensions > Render > Guides Creator). With option for proportional divisions (rule of thirds, golden rule). Limited to maximum 10 divisions, no gutters, no margins. 
 
-Example: Add one of these in your [user shortcuts files](http://wiki.inkscape.org/wiki/index.php/Customizing_Inkscape) (on Linux, it's /home/yourusername/.config/inkscape/keys/default.xml, on Windows, it's in Program Files\Inkscape\share\keys\default.xml.)
+### Tip: Adding a keyboard shortcut
 
-For example, this will add the shortcut Ctrl-Shift-Alt-G to add centered guides.
+You can add a keyboard shortcut to any inkscape extension - manually, by editing an xml file with user keyboard shortcuts)
+
+Edit your [user shortcuts files](http://wiki.inkscape.org/wiki/index.php/Customizing_Inkscape) (on Linux, it's /home/yourusername/.config/inkscape/keys/default.xml, on Windows, it's in Program Files\Inkscape\share\keys\default.xml.)
+
+For example, this will add the shortcut Ctrl-Shift-Alt-G to add centered guides:
 
 `<bind key="G" modifiers="Ctrl,Alt,Shift" action="samplify.add_centered_guides" display="true"/>`
 
@@ -111,7 +114,6 @@ For example, this will add the shortcut Ctrl-Shift-Alt-G to add centered guides.
 `<bind action="samplify.remove_selected_guides" display="true"/>`
 
 Note: you may want to check first to see if the new keyboard shortcuts already exist in your file or in the default shortcuts file.
-
 
 ### Licence
 
