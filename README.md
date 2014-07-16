@@ -21,7 +21,46 @@ With this extension you can add guides at a certain distance (_margin_) from the
 
 ![Add margin guides](img/margins.png)
 
-### 3. Remove all or selected guides
+### 3. Add grid guides
+
+This extension will generate guides in a grid of **equal width columns (or rows) and gutters**.
+
+**Example 1**: Columns (vertical guides), with gutters (spacing between columns), centered on the document
+
+![grid maker with columns](img/inkscape-gridmaker.png)
+
+**Example 2**: Rows (horizontal guides), gutters set to 0, top aligned
+
+![grid maker with rows](img/inkscape-gridmaker2.png)
+
+This extension was conceived as a tool for grids in designing websites in Inkscape. The guides are therefore positioned using pixels, and use rounded numbers (they are set on the pixel). Not tested with other units. 
+
+_With this extension, you can...__
+
+- create **columns** with gutters (vertical guides), and **rows** with gutters (horizontal guides);
+- **define the number of columns, the column width and gutter width** to generate a grid; same with rows;
+- generate evenly spaced guides *without* gutters by setting gutter width to 0;
+- choose to align the grid in relation to the page: left aligned, centered or right aligned;
+- optionnally add an extra horizontal/vertical offset, for example to generate the grid at a certain distance from the page border (when left/right aligned); this offset can be negative; for columns, this offset is a shift to the right (when positive), for rows it is a shift down (when positive)
+- optionnally delete all existing horizontal/vertical guides before generating the new guides;
+- see a preview using Live preview, to test different widths.
+
+_Tips:__
+
+- You can generate **multiple grids** on top of each other, by applying grids several times. Just be sure to uncheck "*Delete existing guides*". 
+- Need guides in the middle of your gutters? After generating the columns (with gutters set to *even* number), generate a new grid with gutters set to zero, column width set to [original column width + gutter width]. If you need guides on round pixels, use an even number for gutter width.
+- You can position several generated **grids side by side** using a very large offset.
+- Need a **baseline grid** in addition to the generated columns ? Use Inkscape's grids under File > Document Properties > Grids. Set a new rectangular grid with for example Spacing X = 2000, Spacing Y = 14.
+
+_Other grid tools for web design:__
+
+Online grid generators and previewers - I sometimes use them to get the right widths *before* using my extension: 
+
+- [grid calculator](http://www.29digital.net/grid/)
+- [variable grid system](http://grids.heroku.com/) - can actually generate css classes, just input the same numbers you used for designing your grid (fluid and fixed grid)
+- [grid calculator and generator](Grid calculator and generator) - set a fixed total width, give a range of column/gutter width, get possible combinations
+
+### 4. Remove all or selected guides
 
 - **Remove All Guides** (no user interface) - actually made by heathenx, bundled here with his permission. See [this blog post](http://screencasters.heathenx.org/blog/2009/06/09/inkscape-extension-remove-guides/) and [this forum topic](https://www.ruby-forum.com/topic/188929). I've just moved the menu item to Extensions > Guides; this functionality may become part of inkscape in upcoming version 0.49
 - **Remove Selected Guides**: Selectively remove all horizontal and/or vertical and/or angled (diagonal) guides. Based on heathenx's extension _Remove all guides_.
