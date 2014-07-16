@@ -9,7 +9,7 @@
 		<param name="bottom_margin"  type="float"   min="-1000" max="1000" _gui-text="Bottom margin">0</param>
 		<param name="left_margin"  type="float"   min="-1000" max="1000" _gui-text="Left margin">0</param>
 		<param name="right_margin"  type="float"   min="-1000" max="1000" _gui-text="Right margin">0</param>
-		<param name="border_guides_info" type="description">If "Same margins" is checked, only the value of top margin will be used. Margins can be negative, but zero margin guides will not be drawn. To add guides on all borders, use Edit > Guides Around Page instead.</param>
+		<param name="border_guides_info" type="description">If "Same margins" is checked, the value of top margin will be used for all sides. Margins can be negative for guides outside the document borders. Zero margin guides will not be drawn. To add guides exactly on all borders, use Edit > Guides Around Page instead.</param>
 
 	<effect>
 		<object-type>all</object-type>
