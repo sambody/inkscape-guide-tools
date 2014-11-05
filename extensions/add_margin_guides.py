@@ -70,6 +70,12 @@ class addMarginGuides(inkex.Effect):
 		# Call the base class constructor.
 		inkex.Effect.__init__(self)
 
+		# Define string option "--unit"
+		self.OptionParser.add_option('--unit',
+				action="store", type="string", 
+				dest="unit", default="mm",
+				help="The unit of the values")
+
 		# Define boolean option "--same_margins"
 		self.OptionParser.add_option('--same_margins',
 				action = 'store', type = 'inkbool',
@@ -103,15 +109,18 @@ class addMarginGuides(inkex.Effect):
 	def effect(self):
 
 		# Get script's options values. Input.
+		
+		# Factor to multiply in order to get user units (pixels)
+		factor = inkex.unittouu('1' + self.options.unit)
 
 		# boolean
 		same_margins = self.options.same_margins
 
-		# convert string to integer
-		top_margin = float(self.options.top_margin)
-		right_margin = float(self.options.right_margin)
-		bottom_margin = float(self.options.bottom_margin)
-		left_margin = float(self.options.left_margin)
+		# convert string to integer, in user units (pixels)
+		top_margin = float(self.options.top_margin) * factor
+		right_margin = float(self.options.right_margin) * factor
+		bottom_margin = float(self.options.bottom_margin) * factor
+		left_margin = float(self.options.left_margin) * factor
 
 		# getting parent tag of the guides
 		namedview = self.document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
@@ -147,7 +156,6 @@ class addMarginGuides(inkex.Effect):
 
 
 # APPLY
-
 
 # Create effect instance and apply it. Taking in SVG, changing it, and then outputing SVG
 effect = addMarginGuides()

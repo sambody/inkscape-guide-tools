@@ -136,6 +136,11 @@ class Grid_Guides(inkex.Effect):
 
 		# COLUMNS (vertical guides)
 
+		self.OptionParser.add_option('--column_unit',
+				action="store", type="string", 
+				dest="column_unit", default="mm",
+				help="The unit of the values")
+
 		self.OptionParser.add_option('--column_alignment',
 				action = 'store', type = 'string',
 				dest = 'column_alignment', default = 'centered',
@@ -172,6 +177,11 @@ class Grid_Guides(inkex.Effect):
 				help = 'Delete existing vertical guides')
 
 		# ROWS (horizontal guides)
+
+		self.OptionParser.add_option('--row_unit',
+				action="store", type="string", 
+				dest="row_unit", default="mm",
+				help="The unit of the values")
 
 		self.OptionParser.add_option('--row_alignment',
 				action = 'store', type = 'string',
@@ -215,20 +225,24 @@ class Grid_Guides(inkex.Effect):
 		tab = self.options.tab
 
 		# columns
+
+		# Factor to multiply in order to get user units (pixels)
+		col_factor = inkex.unittouu('1' + self.options.column_unit)
 		col_alignment = self.options.column_alignment
-		col_offset = int(self.options.column_offset)
+		col_offset = float(self.options.column_offset) * col_factor
 		cols = int(self.options.columns)
-		col_width = int(self.options.column_width)
-		col_gut = int(self.options.column_gutter)
+		col_width = float(self.options.column_width) * col_factor
+		col_gut = float(self.options.column_gutter) * col_factor
 		has_outer_col_gutter = self.options.include_outer_col_gutter
 		delete_hor = self.options.delete_hor_guides
 
 		# rows
+		row_factor = inkex.unittouu('1' + self.options.row_unit)
 		row_alignment = self.options.row_alignment
-		row_offset = int(self.options.row_offset)
+		row_offset = float(self.options.row_offset) * row_factor
 		rows = int(self.options.rows)
-		row_height = int(self.options.row_height)
-		row_gut = int(self.options.row_gutter)
+		row_height = float(self.options.row_height) * row_factor
+		row_gut = float(self.options.row_gutter) * row_factor
 		has_outer_row_gutter = self.options.include_outer_row_gutter
 		delete_vert = self.options.delete_vert_guides
 

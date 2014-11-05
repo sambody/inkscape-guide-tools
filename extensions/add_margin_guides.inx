@@ -2,8 +2,19 @@
 	<_name>Add Margin Guides</_name>
 	<id>samplify.add_margin_guides</id>
 	<dependency type="executable" location="extensions">add_margin_guides.py</dependency>
-
+		
 		<param name="extension_description" type="description">Add guides at a certain distance (margin) from the borders of the document. </param>
+		<param name="unit" type="enum" _gui-text="Unit of values: ">
+			<item value="px">px</item>
+			<item value="pt">pt</item>
+			<item value="in">in</item>
+			<item value="ft">ft</item>
+			<item value="yd">yd</item>
+			<item value="mm">mm</item>
+			<item value="cm">cm</item>
+			<item value="m">m</item>
+			<item value="km">km</item>
+		</param>
 		<param name="same_margins"  type="boolean"  _gui-text="Same margins on all sides (value of top margin)">true</param>
 		<param name="top_margin"  type="float"   min="-1000" max="1000" _gui-text="Top margin">10</param>
 		<param name="bottom_margin"  type="float"   min="-1000" max="1000" _gui-text="Bottom margin">0</param>

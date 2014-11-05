@@ -11,13 +11,13 @@ These are a series of [Inkscape](http://inkscape.org/) extensions related to gui
 4. Remove all guides
 5. Remove selected guides
 
+Note: the screenshots are not completely up to date.
+
 ### 1. Add centered guides to the document
 
 With this extension you can quickly add a horizontal and/or vertical guide through the center of the document.
 
 ![Add centered guides](img/centered.png)
-
-Note: For web images, set your document to a width/height with even numbers, so that the guides fall on a round pixel position.
 
 ### 2. Add margin guides to document
 
@@ -29,9 +29,9 @@ With this extension you can add guides at a certain distance (_margin_) from the
 
 ### 3. Add grid guides
 
-This extension will generate guides in a grid of **equal width columns (or rows) and gutters**.
+This extension will generate guides in a grid of **equal width columns (or rows) with gutters** (spacing between columns).
 
-**Example 1**: Columns (vertical guides), with gutters (spacing between columns), centered on the document
+**Example 1**: Columns (vertical guides), with gutters, centered on the document
 
 ![grid maker with columns](img/inkscape-gridmaker.png)
 
@@ -39,9 +39,9 @@ This extension will generate guides in a grid of **equal width columns (or rows)
 
 ![grid maker with rows](img/inkscape-gridmaker2.png)
 
-This extension was conceived as a tool for grids in designing websites in Inkscape. The guides are therefore positioned using pixels, and use rounded numbers (they are set on the pixel). Not tested with other units. 
+This extension was conceived as a tool for grids in designing websites in Inkscape, using pixels. But it now works with other units too (mm, in, etc)
 
-_With this extension, you can..._
+_With the Add Grid Guides extension, you can..._
 
 - create **columns** with gutters (vertical guides), and **rows** with gutters (horizontal guides);
 - **define the number of columns, the column width and gutter width** to generate a grid; same with rows;
@@ -54,14 +54,13 @@ _With this extension, you can..._
 _Tips:_
 
 - You can generate **multiple grids** on top of each other, by applying grids several times. Just be sure to uncheck "*Delete existing guides*". 
-- Need guides in the middle of your gutters? After generating the columns (with gutters set to *even* number), generate a new grid with gutters set to zero, column width set to [original column width + gutter width]. If you need guides on round pixels, use an even number for gutter width.
-- You can generate **grids side by side** by using a very large offset.
+- Need guides in the middle of your gutters? After generating the columns, generate a new grid with gutters set to zero, with column width set to [original column width + gutter width]. If you need centered guides on round pixels, use an even number for gutter width.
+- You can generate **grids side by side** by using a very large offset, one after the other.
 - Need a **baseline grid** in addition to the generated columns ? Use Inkscape's grids under File > Document Properties > Grids. Set a new rectangular grid with for example Spacing X = 2000, Spacing Y = 14.
 
 _Limitations:_
 
-- Not tested with other units than pixels. It is made to set guides on round position numbers (ie. at position 24, not 24.35)
-- The grid is calculated "inside out" - from the _column width_, gutter width and number of columns, the guides are drawn. It currently cannot draw the guides "outside in" - from a _predefined total width_, a gutter width and number of columns, calculate the columns width and draw the guides... Would be a useful addition.
+- The grid is calculated "inside out" - from the _column width_, gutter width and number of columns, the guides are drawn. It currently cannot draw the guides "outside in" - from a _predefined total width_, a gutter width and number of columns, calculate the columns width and draw the guides... 
 
 The Add Grid Guides is heavily based on the code from Grid Creator, part of Inkscape core, under Extensions > Render. Many thanks to that extension's maintainer.
 
@@ -114,8 +113,8 @@ Note: you may want to check first to see if the new keyboard shortcuts already e
 ### What's next
 
 - It would be nice to also make an "outside in" grid building extension - where you would set a _total width_, a gutter width, and number of columns, and the extension would calculate the columns width and draw the guides. The total width could be defined by a number, or by the document (with or without margins), or by the bounding box of a selection...
-- It would be nice if the Margin guides and Centered guides would work _on selected objects_ instead of on the document.
-- The Add Grid Guides should be able to work with other units than pixels. And should not always have to be on round pixel positions.
+- It would be nice if the Margin guides and Centered guides would work _on selected objects_ instead of only on the document.
+- ~~The Add Grid Guides and Add Margin Guides should be able to work with other units than pixels. And should not always have to be on round pixel positions.~~ Done - you can now use units different from pixels.
 
 ### Licence
 
