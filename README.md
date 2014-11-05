@@ -23,13 +23,13 @@ With this extension you can quickly add a horizontal and/or vertical guide throu
 
 Inkscape already allows you to add guides _exactly_ on the borders of the page, with **Edit > Guides around page**. 
 
-With this extension you can add guides at a certain distance (_margin_) from the borders of the document. Add them all at once (for equal margins) or separately. Negative margins creates guides _outside_ the page borders. Zero margin guides are not drawn - use the mentioned Guides around Page for that.
+With this extension you can add guides at a certain distance (_margin_) from the borders of the document. Add them all at once (for equal margins) or separately. Negative margins creates guides _outside_ the page borders. Zero margin guides are not drawn - use the mentioned Guides around Page for that. Use any unit (pixels, mm, etc).
 
 ![Add margin guides](img/margins.png)
 
 ### 3. Add grid guides
 
-This extension will generate guides in a grid of **equal width columns (or rows) with gutters** (spacing between columns).
+This extension will generate guides in a grid of **equal width columns (or rows) with gutters** (spacing between columns). Use any unit (pixels, mm, etc).
 
 **Example 1**: Columns (vertical guides), with gutters, centered on the document
 
@@ -114,7 +114,7 @@ Note: you may want to check first to see if the new keyboard shortcuts already e
 
 - It would be nice to also make an "outside in" grid building extension - where you would set a _total width_, a gutter width, and number of columns, and the extension would calculate the columns width and draw the guides. The total width could be defined by a number, or by the document (with or without margins), or by the bounding box of a selection...
 - It would be nice if the Margin guides and Centered guides would work _on selected objects_ instead of only on the document.
-- ~~The Add Grid Guides and Add Margin Guides should be able to work with other units than pixels. And should not always have to be on round pixel positions.~~ Done - you can now use units different from pixels.
+- ~~The Add Grid Guides and Add Margin Guides should be able to work with other units than pixels. And should not always have to be on round pixel positions.~~  Done - you can now use units different from pixels.
 
 ### Licence
 
