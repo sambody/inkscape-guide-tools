@@ -121,9 +121,9 @@ class addMarginGuides(inkex.Effect):
 
 		# getting the width and height attributes of the canvas
 		canvas_width  = inkex.unittouu(svg.get('width'))
-		canvas_height = inkex.unittouu(svg.attrib['height'])
+		canvas_height = inkex.unittouu(svg.get('height'))
 
-		# Get selection bouding box - TODO
+		# Get selection bounding box - TODO
 
 		# now let's use the input:
 
