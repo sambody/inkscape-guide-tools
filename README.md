@@ -51,6 +51,7 @@ _With the Add Grid Guides extension, you can..._
 - optionnally add an extra horizontal/vertical offset, for example to generate the grid at a certain distance from the page border (when left/right aligned); this offset can be negative; for columns, this offset is a shift to the right (when positive), for rows it is a shift down (when positive);
 - optionnally delete all existing horizontal/vertical guides before generating the new guides;
 - see a preview using Live preview, to test different widths.
+- let it give you the total width (or height for rows) - useful when generating a grid that needs to be contained within a certain width (or height).
 
 _Tips:_
 
