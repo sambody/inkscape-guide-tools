@@ -93,6 +93,8 @@ Restart or open Inkscape.
 
 The extensions will all be available in the menu under **Extensions > Guide**.
 
+![menu guide extensions](img/menu.png)
+
 ### Adding a keyboard shortcut
 
 Using an extension often? You can add a keyboard shortcut to any inkscape extension, manually, by editing an xml file with user keyboard shortcuts.
