@@ -176,6 +176,11 @@ class Grid_Guides(inkex.Effect):
 				dest = 'delete_vert_guides', default = False,
 				help = 'Delete existing vertical guides')
 
+		self.OptionParser.add_option('--show_total_width',
+				action = 'store', type = 'inkbool',
+				dest = 'show_total_width', default = False,
+				help = 'Show total width')
+
 		# ROWS (horizontal guides)
 
 		self.OptionParser.add_option('--row_unit',
@@ -218,6 +223,11 @@ class Grid_Guides(inkex.Effect):
 				dest = 'delete_hor_guides', default = False,
 				help = 'Delete existing horizontal guides')
 
+		self.OptionParser.add_option('--show_total_height',
+				action = 'store', type = 'inkbool',
+				dest = 'show_total_height', default = False,
+				help = 'Show total height')
+
 	def effect(self):
 
 		# Get script's option values from self.options
@@ -226,7 +236,7 @@ class Grid_Guides(inkex.Effect):
 
 		# columns
 
-		# Factor to multiply in order to get user units (pixels)
+		# Factor to multiply in order to get value in user units (pixels)
 		col_factor = inkex.unittouu('1' + self.options.column_unit)
 		col_alignment = self.options.column_alignment
 		col_offset = float(self.options.column_offset) * col_factor
@@ -235,6 +245,7 @@ class Grid_Guides(inkex.Effect):
 		col_gut = float(self.options.column_gutter) * col_factor
 		has_outer_col_gutter = self.options.include_outer_col_gutter
 		delete_hor = self.options.delete_hor_guides
+		show_total_width = self.options.show_total_width
 
 		# rows
 		row_factor = inkex.unittouu('1' + self.options.row_unit)
@@ -245,6 +256,7 @@ class Grid_Guides(inkex.Effect):
 		row_gut = float(self.options.row_gutter) * row_factor
 		has_outer_row_gutter = self.options.include_outer_row_gutter
 		delete_vert = self.options.delete_vert_guides
+		show_total_height = self.options.show_total_height
 
 		# parent tag of the guides
 		namedview = self.document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
@@ -285,6 +297,10 @@ class Grid_Guides(inkex.Effect):
 			# Create column guides with column_spacings
 			drawDoubleGuides(cols, col_width, col_gut, hor_start, has_outer_col_gutter, "vertical", namedview)
 
+			# Give total width in original units
+			if (show_total_width == True):
+				printDebug("Total width of grid will be: " + str(total_col_width/col_factor) + " " + self.options.column_unit)
+
 		elif (tab == "\"rows\""):
 
 			# Delete existing horizontal guides
@@ -303,6 +319,10 @@ class Grid_Guides(inkex.Effect):
 
 			# Create row guides
 			drawDoubleGuides(rows, row_height, row_gut, vert_start, has_outer_row_gutter, "horizontal", namedview)
+
+			# Give total height in original units
+			if (show_total_height == True):
+				printDebug("Total height of grid will be: " + str(total_row_height/row_factor) + " " + self.options.row_unit)
 
 
 # Create effect instance and apply it.
