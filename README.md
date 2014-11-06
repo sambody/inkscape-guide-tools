@@ -119,7 +119,7 @@ Note: you may want to check first to see if the new keyboard shortcuts already e
 - It would be nice if the Margin guides, Centered guides and Grid guides would work _on selected objects_ instead of only on the document.
 - ~~The Add Grid Guides and Add Margin Guides should be able to work with other units than pixels. And should not always have to be on round pixel positions.~~  Done - you can now use units different from pixels.
 - ~~When generating a grid, it would be cool if one would receive the total width, somehow. Maybe by generating a text element above the grid, with the total width, or with a dialogue box. For example "Columns total width: 980 px"~~ Done - the grid extension now has the option to give you the total width (or height). It's not very elegant, but it works.
-- Generating a diagonal grid? Or just rotating existing guides?
+- Generating a diagonal grid? Or just rotating existing guides? Not sure if that would be useful...
 
 ### Licence
 
