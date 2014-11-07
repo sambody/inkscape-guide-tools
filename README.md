@@ -119,6 +119,8 @@ Note: you may want to check first to see if the new keyboard shortcuts already e
 
 ### What's next
 
+- For Inkscape 0.91: check how units work, adapt extensions accordingly.
+- For Inkscape 0.91: add color and label to guides when generating.
 - It would be nice to also make an "outside in" grid building extension - where you would set a _total width_, a gutter width, and number of columns, and the extension would calculate the columns width and draw the guides. The total width could be defined by a number, or by the document (with or without margins), or by the bounding box of a selection...
 - It would be nice if the Margin guides, Centered guides and Grid guides would work _on selected objects_ instead of only on the document.
 - ~~The Add Grid Guides and Add Margin Guides should be able to work with other units than pixels. And should not always have to be on round pixel positions.~~  Done - you can now use units different from pixels.
@@ -129,4 +131,4 @@ Note: you may want to check first to see if the new keyboard shortcuts already e
 
 These guide extensions are licenced under the GPL v2, just like Inkscape.
 
-Author: Samuel Dellicour
+Author: Samuel Dellicour, [web designer](http://www.samplify.be/)
