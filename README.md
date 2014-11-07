@@ -3,6 +3,8 @@ Inkscape guide tools
 
 These are a series of [Inkscape](http://inkscape.org/) extensions related to guides.
 
+**Important note**: these extensions have been tested in Inkscape 0.48. When upgrading to (upcoming) 0.91, the extensions may break, as units are calculated differently in that version. I'll update the extensions when 0.91 comes out.
+
 ### The current extensions are:
 
 1. Add centered guides
