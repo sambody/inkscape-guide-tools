@@ -3,15 +3,16 @@ Inkscape guide tools
 
 These are a series of [Inkscape](http://inkscape.org/) extensions related to guides.
 
-**Important note**: these extensions have been tested in Inkscape 0.48. When upgrading to (upcoming) 0.91, the extensions may break, as units are calculated differently in that version. I'll update the extensions when 0.91 comes out.
+*Updated for Inkscape 0.91. *
+
+If you need the old version, compatible with Inkscape 0.49, [download the old version, release 1](https://github.com/sambody/inkscape-guide-tools/archive/1.0.zip).
 
 ### The current extensions are:
 
-1. Add centered guides
-2. Add margin guides
+1. Add centered guides to document
+2. Add margin guides to document
 3. Add grid guides (formerly Grid Maker)
-4. Remove all guides
-5. Remove selected guides
+4. Remove selected guides
 
 ### 1. Add centered guides to the document
 
@@ -67,15 +68,11 @@ _Limitations:_
 
 The Add Grid Guides is heavily based on the code from Grid Creator, part of Inkscape core, under Extensions > Render. Many thanks to that extension's maintainer.
 
-### 4. Remove all guides
-
-This extension is actually made by heathenx, bundled here with his permission. See [this blog post](http://screencasters.heathenx.org/blog/2009/06/09/inkscape-extension-remove-guides/) and [this forum topic](https://www.ruby-forum.com/topic/188929). I've just moved the extension's menu item to Extensions > Guides; this functionality may become part of inkscape in upcoming version 0.49
-
-(no user interface, so no screenshot) 
-
-### 5. Remove selected guides
+### 4. Remove selected guides
 
 Selectively remove all horizontal and/or vertical and/or angled (diagonal) guides. Based on heathenx's extension _Remove all guides_.
+
+To remove ALL guides from your document, instead of using this extension, just go to Edit > Delete all guides (Inkscape 0.91 and up)
 
 ![Remove selected guides](img/remove.png)
 
@@ -85,7 +82,7 @@ Selectively remove all horizontal and/or vertical and/or angled (diagonal) guide
 2. Unzip (extract) the archive on your computer;
 3. Open it. In the folder "extensions", you will find the extension files - they come in pairs, an .inx and .py file for each extension. Copy these files (not the folder) into your Inkscape extensions folder, which you can find here:
 
-- on Windows: "C:\Program Files\Inkscape\share\extensions"
+- on Windows: "C:\Program Files\Inkscape\share\extensions" OR in "C:\Users\Users\YourUserName\.Appdata\Roaming\inkscape\extensions"
 - on Linux: " /home/yourusername/.config/inkscape/extensions" (.config is a hidden folder)
 - on OS X: "/Applications/Inkscape.app/Contents/Resources/extensions" 
 
@@ -99,30 +96,18 @@ The extensions will all be available in the menu under **Extensions > Guide**.
 
 ### Adding a keyboard shortcut
 
-Using an extension often? You can add a keyboard shortcut to any inkscape extension, manually, by editing an xml file with user keyboard shortcuts.
-
-Edit your [user shortcuts files](http://wiki.inkscape.org/wiki/index.php/Customizing_Inkscape) (on Linux, it's /home/yourusername/.config/inkscape/keys/default.xml, on Windows, it's in Program Files\Inkscape\share\keys\default.xml.) 
-
-For example, this will add the shortcut Ctrl-Shift-Alt-G to add centered guides:
-
-`<bind key="G" modifiers="Ctrl,Alt,Shift" action="samplify.add_centered_guides" display="true"/>`
-
-`<bind action="samplify.add_margin_guides" display="true"/>`
-
-`<bind action="samplify.add_grid_guides" display="true"/>`
-
-`<bind action="samplify.remove_guides" display="true"/>`
-
-`<bind action="samplify.remove_selected_guides" display="true"/>`
-
-Note: you may want to check first to see if the new keyboard shortcuts already exist in your file or in the default shortcuts file.
+Using an extension often? In Inkscape 0.91, you can add a keyboard shortcut to an extension. You'll find the user interface under Edit > Preferences, Interface > Keyboard shortcuts.
 
 ### What's next
 
-- For Inkscape 0.91: check how units work, adapt extensions accordingly.
+I'm thinking of adding the following features in the future:
+
 - For Inkscape 0.91: add color and label to guides when generating.
-- It would be nice to also make an "outside in" grid building extension - where you would set a _total width_, a gutter width, and number of columns, and the extension would calculate the columns width and draw the guides. The total width could be defined by a number, or by the document (with or without margins), or by the bounding box of a selection...
+- Adding centered guides in gutters.
 - It would be nice if the Margin guides, Centered guides and Grid guides would work _on selected objects_ instead of only on the document.
+- It would be nice to also make an "outside in" grid building extension - where you would set a _total width_, a gutter width, and number of columns, and the extension would calculate the columns width and draw the guides. The total width could be defined by a number, or by the document (with or without margins), or by the bounding box of a selection...
+- ~~Remove the "Remove all guides" extension.~~ Done. It's part of Inkscape 0.91 core.
+- ~~For Inkscape 0.91: check how units work, adapt extensions accordingly.~~ Done. The extensions are now compatible with Inkscape 0.91.
 - ~~The Add Grid Guides and Add Margin Guides should be able to work with other units than pixels. And should not always have to be on round pixel positions.~~  Done - you can now use units different from pixels.
 - ~~When generating a grid, it would be cool if one would receive the total width, somehow. Maybe by generating a text element above the grid, with the total width, or with a dialogue box. For example "Columns total width: 980 px"~~ Done - the grid extension now has the option to give you the total width (or height). It's not very elegant, but it works.
 - Generating a diagonal grid? Or just rotating existing guides? Not sure if that would be useful... 
