@@ -166,6 +166,11 @@ class Grid_Guides(inkex.Effect):
 				dest = 'column_gutter', default = 0,
 				help = 'Spacing between columns')
 
+		self.OptionParser.add_option('--include_center_col_guides',
+				action = 'store', type = 'inkbool',
+				dest = 'include_center_col_guides', default = False,
+				help = 'Include centered guides inside gutters)')
+
 		self.OptionParser.add_option('--include_outer_col_gutter',
 				action = 'store', type = 'inkbool',
 				dest = 'include_outer_col_gutter', default = True,
@@ -218,6 +223,11 @@ class Grid_Guides(inkex.Effect):
 				dest = 'include_outer_row_gutter', default = True,
 				help = 'Include outer gutters (double guides)')
 
+		self.OptionParser.add_option('--include_center_row_guides',
+				action = 'store', type = 'inkbool',
+				dest = 'include_center_row_guides', default = True,
+				help = 'Include centered guides inside gutters')
+
 		self.OptionParser.add_option('--delete_hor_guides',
 				action = 'store', type = 'inkbool',
 				dest = 'delete_hor_guides', default = False,
@@ -244,6 +254,7 @@ class Grid_Guides(inkex.Effect):
 		col_width = float(self.options.column_width) * col_factor
 		col_gut = float(self.options.column_gutter) * col_factor
 		has_outer_col_gutter = self.options.include_outer_col_gutter
+		has_center_col_guides = self.options.include_center_col_guides
 		delete_hor = self.options.delete_hor_guides
 		show_total_width = self.options.show_total_width
 
@@ -255,6 +266,7 @@ class Grid_Guides(inkex.Effect):
 		row_height = float(self.options.row_height) * row_factor
 		row_gut = float(self.options.row_gutter) * row_factor
 		has_outer_row_gutter = self.options.include_outer_row_gutter
+		has_center_row_guides = self.options.include_center_row_guides
 		delete_vert = self.options.delete_vert_guides
 		show_total_height = self.options.show_total_height
 
@@ -297,6 +309,17 @@ class Grid_Guides(inkex.Effect):
 			# Create column guides with column_spacings
 			drawDoubleGuides(cols, col_width, col_gut, hor_start, has_outer_col_gutter, "vertical", namedview)
 
+			# Center guides columns
+			if (has_outer_col_gutter == True):
+				center_cols = cols
+				center_hor_start = hor_start + (col_gut/2)
+			else:
+				center_cols = cols - 2
+				center_hor_start = hor_start + (col_gut/2) + col_width
+			# Draw centered guides if necessary 
+			if col_gut > 0 and has_center_col_guides == True:
+				drawDoubleGuides(center_cols, col_width + col_gut, 0, center_hor_start, has_outer_col_gutter, "vertical", namedview)
+
 			# Give total width in original units
 			if (show_total_width == True):
 				printDebug("Total width of grid will be: " + str(total_col_width/col_factor) + " " + self.options.column_unit)
@@ -319,6 +342,17 @@ class Grid_Guides(inkex.Effect):
 
 			# Create row guides
 			drawDoubleGuides(rows, row_height, row_gut, vert_start, has_outer_row_gutter, "horizontal", namedview)
+
+			# Center guides rows
+			if (has_outer_row_gutter == True):
+				center_rows = rows
+				center_vert_start = vert_start + (row_gut/2)
+			else:
+				center_rows = rows - 2
+				center_vert_start = vert_start + (row_gut/2) + row_height
+			# Draw centered guides if necessary 
+			if row_gut > 0 and has_center_row_guides == True:
+				drawDoubleGuides(center_rows, row_height + row_gut, 0, center_vert_start, has_outer_row_gutter, "horizontal", namedview)
 
 			# Give total height in original units
 			if (show_total_height == True):

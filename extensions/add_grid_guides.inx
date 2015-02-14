@@ -25,6 +25,7 @@
 			<param name="column_width"  type="float"   min="1" max="5000" _gui-text="Column width:">50</param>
 			<param name="column_gutter"  type="float"   min="0" max="1000" _gui-text="Gutter width (spacing between columns, can be 0):">10</param>
 			<param name="include_outer_col_gutter" type="boolean" _gui-text="Include outer gutters">true</param>
+			<param name="include_center_col_guides" type="boolean" _gui-text="Include centered guides in gutters">false</param>
 			<param name="column_alignment" type="enum" _gui-text="Alignment in relation to the document:">
 				<_item value="left">Left aligned</_item>
 				<_item value="centered">Centered</_item>
@@ -52,6 +53,7 @@
 			<param name="row_height"  type="int"   min="1" max="5000" _gui-text="Row height:">50</param>
 			<param name="row_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter height (spacing between rows):">10</param>
 			<param name="include_outer_row_gutter" type="boolean" _gui-text="Include outer gutters">true</param>
+			<param name="include_center_row_guides" type="boolean" _gui-text="Include centered guides in gutters">false</param>
 			<param name="row_alignment" type="enum" _gui-text="Alignment in relation to page:">
 				<_item value="top">Top aligned</_item>
 				<_item value="centered">Centered</_item>
@@ -63,7 +65,7 @@
 			<param name="show_total_height" type="boolean" _gui-text="Show total height before generating">false</param>
 		</page>
 		<page name="help" _gui-text="Help">
-			<param name="help_text" type="description">This extension allows you to create a grid - a series of guides to make equal width columns (or rows) with gutters - the spacing between columns. Gutter width can be zero to generate equal distance guides. The generated grid can be aligned in relation to the borders of the page, or centered to the page, and can have an extra custom offset, which can be negative.</param>
+			<param name="help_text" type="description">This extension allows you to create a grid - a series of guides to make equal width columns (or rows) with gutters - the spacing between columns. Gutter width can be zero to generate equal distance guides. The generated grid can be aligned in relation to the borders of the page, or centered to the page, and can have an extra custom offset, which can be negative. Center guides are optional guides in the center of gutters. If center guides are to be positioned on a round number, be sure to set gutter size to an even number.</param>
 		</page>
 	</param>
 

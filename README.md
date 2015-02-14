@@ -3,15 +3,13 @@ Inkscape guide tools
 
 These are a series of [Inkscape](http://inkscape.org/) extensions related to guides.
 
-*Updated for Inkscape 0.91.*
-
-If you need the old version, compatible with Inkscape 0.49, [download the old version, release 1](https://github.com/sambody/inkscape-guide-tools/archive/1.0.zip).
+Updated for Inkscape 0.91, not compatible with Inkscape 0.49. For a version compatible with Inkscape 0.49, [download the old version](https://github.com/sambody/inkscape-guide-tools/archive/1.0.zip).
 
 ### The current extensions are:
 
 1. Add centered guides to document
 2. Add margin guides to document
-3. Add grid guides (formerly Grid Maker)
+3. Add grid guides
 4. Remove selected guides
 
 ### 1. Add centered guides to the document
@@ -52,6 +50,7 @@ _With the Add Grid Guides extension, you can..._
 - create **columns** with gutters (vertical guides), and **rows** with gutters (horizontal guides);
 - **define the number of columns, the column width and gutter width** to generate a grid; same with rows;
 - generate **evenly spaced guides** *without* gutters by setting gutter width to 0;
+- add optional **centered guides inside the gutters** (guides in between gutter guides);
 - choose to align the grid in relation to the page: left aligned, centered or right aligned;
 - optionnally add an extra horizontal/vertical offset, for example to generate the grid at a certain distance from the page border (when left/right aligned); this offset can be negative; for columns, this offset is a shift to the right (when positive), for rows it is a shift down (when positive);
 - optionnally delete all existing horizontal/vertical guides before generating the new guides;
@@ -60,7 +59,6 @@ _With the Add Grid Guides extension, you can..._
 
 _Tips:_
 
-- Need **guides in the middle of your gutters**? After generating the columns, generate a new grid with gutters set to zero, with column width set to [original column width + gutter width] - this will generate the centered guides in your gutters. If you need centered guides positioned on round pixels, be sure to use an even number for the original gutter width.
 - You can generate **grids side by side** by using a very large offset, one after the other.
 - Need a **baseline grid** in addition to the generated columns ? Use Inkscape's grids under File > Document Properties > Grids. Set a new rectangular grid with for example Spacing X = 2000, Spacing Y = 14.
 
