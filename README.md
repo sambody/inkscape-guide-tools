@@ -5,7 +5,7 @@ These are a series of [Inkscape](http://inkscape.org/) extensions related to gui
 
 [Download the latest version](https://github.com/sambody/inkscape-guide-tools/archive/master.zip), compatible with Inkscape 0.91 and NOT compatible with Inkscape 0.49 or earlier.
 
-For a version compatible with Inkscape 0.49, [download the old version](https://github.com/sambody/inkscape-guide-tools/archive/1.0.zip).
+For a version compatible with Inkscape 0.49, [download the old version](https://github.com/sambody/inkscape-guide-tools/archive/1.0.zip), which has less features and will no longer be updated.
 
 ### The current bundled extensions are:
 
