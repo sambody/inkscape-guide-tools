@@ -3,9 +3,11 @@ Inkscape guide tools
 
 These are a series of [Inkscape](http://inkscape.org/) extensions related to guides.
 
-Updated for Inkscape 0.91, not compatible with Inkscape 0.49. For a version compatible with Inkscape 0.49, [download the old version](https://github.com/sambody/inkscape-guide-tools/archive/1.0.zip).
+[Download the latest version](https://github.com/sambody/inkscape-guide-tools/archive/master.zip), compatible with Inkscape 0.91 and NOT compatible with Inkscape 0.49 or earlier.
 
-### The current extensions are:
+For a version compatible with Inkscape 0.49, [download the old version](https://github.com/sambody/inkscape-guide-tools/archive/1.0.zip).
+
+### The current bundled extensions are:
 
 1. Add centered guides to document
 2. Add margin guides to document
