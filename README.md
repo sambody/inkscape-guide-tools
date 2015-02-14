@@ -3,7 +3,7 @@ Inkscape guide tools
 
 These are a series of [Inkscape](http://inkscape.org/) extensions related to guides.
 
-*Updated for Inkscape 0.91. *
+*Updated for Inkscape 0.91.*
 
 If you need the old version, compatible with Inkscape 0.49, [download the old version, release 1](https://github.com/sambody/inkscape-guide-tools/archive/1.0.zip).
 
