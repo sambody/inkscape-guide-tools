@@ -20,6 +20,8 @@ With this extension you can quickly add a horizontal and/or vertical guide throu
 
 ![Add centered guides](img/centered.png)
 
+To add a guide through the center of a shape, turn on Snap to center in Inkscape options panel, then drag the guide to the center.
+
 ### 2. Add margin guides to document
 
 Inkscape already allows you to add guides _exactly_ on the borders of the page, with **Edit > Guides around page**. With this extension you can add guides at a certain distance (_margin_) from the borders of the document. 
@@ -72,7 +74,7 @@ The Add Grid Guides is heavily based on the code from Grid Creator, part of Inks
 
 Selectively remove all horizontal and/or vertical and/or angled (diagonal) guides. Based on heathenx's extension _Remove all guides_.
 
-To remove ALL guides from your document, instead of using this extension, just go to Edit > Delete all guides (Inkscape 0.91 and up)
+To remove ALL guides from your document, instead of using this extension, just go to *Edit > Delete all guides* (Inkscape 0.91 and up)
 
 ![Remove selected guides](img/remove.png)
 
@@ -80,13 +82,13 @@ To remove ALL guides from your document, instead of using this extension, just g
 
 1. [Download the zip archive](https://github.com/sambody/inkscape-guide-tools/archive/master.zip) to your computer;
 2. Unzip (extract) the archive on your computer;
-3. Open it. In the folder "extensions", you will find the extension files - they come in pairs, an .inx and .py file for each extension. Copy these files (not the folder) into your Inkscape extensions folder, which you can find here:
+3. Open it. Copy all the files that are inside "extensions" folder (NOT the folder itself) into your Inkscape extensions folder, which you can find here:
 
 - on Windows: "C:\Program Files\Inkscape\share\extensions" OR in "C:\Users\Users\YourUserName\.Appdata\Roaming\inkscape\extensions"
 - on Linux: " /home/yourusername/.config/inkscape/extensions" (.config is a hidden folder)
 - on OS X: "/Applications/Inkscape.app/Contents/Resources/extensions" 
 
-Restart or open Inkscape.
+4. Restart or open Inkscape.
 
 ### Where to find the extension menu items
 
@@ -96,7 +98,7 @@ The extensions will all be available in the menu under **Extensions > Guide**.
 
 ### Adding a keyboard shortcut
 
-Using an extension often? In Inkscape 0.91, you can add a keyboard shortcut to an extension. You'll find the user interface under Edit > Preferences, Interface > Keyboard shortcuts.
+Using an extension often? In Inkscape 0.91, you can now add a keyboard shortcut to an extension. You'll find the user interface under Edit > Preferences, Interface > Keyboard shortcuts.
 
 ### What's next
 
