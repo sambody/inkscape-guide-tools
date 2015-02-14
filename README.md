@@ -33,7 +33,7 @@ Inkscape already allows you to add guides _exactly_ on the borders of the page, 
 
 ### 3. Add grid guides
 
-This extension will generate guides in a grid of **equal width columns (or rows) with gutters** (spacing between columns). Use any unit (pixels, mm, etc).
+This extension will generate guides in a grid of **equal width columns (or rows) with gutters** (spacing between columns). With optional centered guides inside gutters (not visible in screenshots). Use any unit (pixels, mm, etc).
 
 **Example 1**: Columns (vertical guides), with gutters, centered on the document
 
