@@ -10,7 +10,7 @@ For a version compatible with Inkscape 0.48 or ealier, [download the old version
 ### The current bundled extensions are:
 
 1. Add centered guides to document or selection
-2. Add margin guides to document
+2. Add margin guides to document or selection
 3. Add grid guides
 4. Remove selected guides
 
@@ -24,7 +24,9 @@ Note: Alternatively, you can manually add a guide through the center of an objec
 
 ### 2. Add margin guides to document
 
-Inkscape already allows you to add guides _exactly_ on the borders of the page, with **Edit > Guides around page**. With this extension you can add guides at a certain distance (_margin_) from the borders of the document. 
+Inkscape already allows you to add guides _exactly_ on the borders of the page, with **Edit > Guides around page**. 
+
+With this extension you can add guides at a certain distance (_margin_) from the borders of the document, OR (the bounding box of) a selected object. 
 
 - Add them all at once (for equal margins) or separately. 
 - Negative margins creates guides _outside_ the page borders. 

@@ -28,18 +28,19 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 import inkex
 import gettext
 _ = gettext.gettext
+try:
+	from subprocess import Popen, PIPE
+except ImportError:
+	inkex.errormsg(_(
+		"Failed to import the subprocess module."
+		))
+	inkex.errormsg(
+		"Python version is : " + str(inkex.sys.version_info)
+		)
+	exit(1)
 
 
-# FUNCTIONS
-
-
-# To show debugging output
-def printDebug(string):
-	inkex.debug( _(str(string)) )
-
-# To show error to user
-def printError(string):
-	inkex.errormsg( _(str(string)) )
+# To show debugging output or error messages, use: inkex.debug( _(str(string)) )
 
 # Draw single guide
 # parameters: position (single length), orientation ("horizontal/vertical"), parent
@@ -75,6 +76,12 @@ class addMarginGuides(inkex.Effect):
 				action="store", type="string", 
 				dest="unit", default="mm",
 				help="The unit of the values")
+
+		# Define string option "--target"
+		self.OptionParser.add_option('--target',
+				action="store", type="string", 
+				dest="target", default="document",
+				help="Target: document or selection")
 
 		# Define boolean option "--same_margins"
 		self.OptionParser.add_option('--same_margins',
@@ -113,6 +120,9 @@ class addMarginGuides(inkex.Effect):
 		# Factor to multiply in order to get user units (pixels)
 		factor = self.unittouu('1' + self.options.unit)
 
+		# document or selection
+		target = self.options.target
+
 		# boolean
 		same_margins = self.options.same_margins
 
@@ -128,31 +138,74 @@ class addMarginGuides(inkex.Effect):
 		# getting the main SVG document element (canvas)
 		svg = self.document.getroot()
 
-		# getting the width and height attributes of the canvas
-		canvas_width  = self.unittouu(svg.get('width'))
-		canvas_height = self.unittouu(svg.get('height'))
-
-		# Get selection bounding box - TODO
-
-		# now let's use the input:
-
-		# draw margin guides (if not zero)
+		# if same margins, set them all to same value
 		if same_margins:
 			right_margin = top_margin
 			bottom_margin = top_margin
 			left_margin = top_margin
 
-		# start position of guides
-		top_pos = canvas_height - top_margin
-		right_pos = canvas_width - right_margin
-		bottom_pos = bottom_margin
-		left_pos = left_margin
+		# getting the width and height attributes of the canvas
+		canvas_width  = self.unittouu(svg.get('width'))
+		canvas_height = self.unittouu(svg.get('height'))
 
-		# Draw the four margin guides (if margin exists)
-		if top_pos != canvas_height: drawGuide(top_pos, "horizontal", namedview)
-		if right_pos != canvas_width: drawGuide(right_pos, "vertical", namedview)
-		if bottom_pos != 0: drawGuide(bottom_pos, "horizontal", namedview)
-		if left_pos != 0: drawGuide(left_pos, "vertical", namedview)
+		# If selection, draw around selection. Otherwise use document.
+		if (target == "selection"):
+
+			# If there is no selection, quit with message
+			if not self.options.ids:
+				inkex.errormsg(_("Please select an object first"))
+				exit()
+
+			# query bounding box, upper left corner (?)
+			q = {'x':0, 'y':0, 'width':0, 'height':0}
+			for query in q.keys():
+				p = Popen(
+					'inkscape --query-%s --query-id=%s "%s"' % (query, self.options.ids[0], self.args[-1], ),
+					shell=True,
+					stdout=PIPE,
+					stderr=PIPE,
+					)
+				p.wait()
+				q[query] = p.stdout.read()
+
+			# get center of bounding box
+			obj_width = float(q['width'])
+			obj_height = float(q['height'])
+			obj_x = float(q['x']) + obj_width/2
+			obj_y = ( canvas_height - float(q['y']) - obj_height ) + obj_height/2
+
+			# start position of guides (not sur why I need to add the last half width/height)
+			top_pos = obj_y - top_margin + obj_height/2
+			right_pos = obj_x + obj_width - right_margin - obj_width/2
+			bottom_pos = obj_y - obj_height + bottom_margin + obj_height/2
+			left_pos = obj_x + left_margin - obj_width/2
+
+			# Draw the four margin guides
+			# TODO: only draw if not on border
+			drawGuide(top_pos, "horizontal", namedview)
+			drawGuide(right_pos, "vertical", namedview)
+			drawGuide(bottom_pos, "horizontal", namedview)
+			drawGuide(left_pos, "vertical", namedview)
+
+		else:		
+
+			# draw margin guides (if not zero)
+			if same_margins:
+				right_margin = top_margin
+				bottom_margin = top_margin
+				left_margin = top_margin
+
+			# start position of guides
+			top_pos = canvas_height - top_margin
+			right_pos = canvas_width - right_margin
+			bottom_pos = bottom_margin
+			left_pos = left_margin
+
+			# Draw the four margin guides (if margin exists)
+			if top_pos != canvas_height: drawGuide(top_pos, "horizontal", namedview)
+			if right_pos != canvas_width: drawGuide(right_pos, "vertical", namedview)
+			if bottom_pos != 0: drawGuide(bottom_pos, "horizontal", namedview)
+			if left_pos != 0: drawGuide(left_pos, "vertical", namedview)
 
 
 # APPLY

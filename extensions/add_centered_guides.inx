@@ -3,14 +3,15 @@
 	<id>samplify.add_centered_guides</id>
 	<dependency type="executable" location="extensions">add_centered_guides.py</dependency>
 
-
 	<effect>
 		<object-type>all</object-type>
 		<effects-menu>
 			<submenu _name="Guides"/>
 		</effects-menu>
 	</effect>
+
 	<script>
 		<command reldir="extensions" interpreter="python">add_centered_guides.py</command>
 	</script>
+	
 </inkscape-extension>

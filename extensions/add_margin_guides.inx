@@ -1,9 +1,13 @@
 <inkscape-extension>
-	<_name>Add Margin Guides</_name>
+	<_name>Add Margin Guides to document or selection</_name>
 	<id>samplify.add_margin_guides</id>
 	<dependency type="executable" location="extensions">add_margin_guides.py</dependency>
 		
-		<param name="extension_description" type="description">Add guides at a certain distance (margin) from the borders of the document. </param>
+		<param name="extension_description" type="description">Add guides at a certain distance (margin) from the borders of the document or the selection. </param>
+		<param name="target" type="enum" _gui-text="Add guides in relation to ">
+			<item value="document">the document</item>
+			<item value="selection">the selected object</item>
+		</param>
 		<param name="unit" type="enum" _gui-text="Unit of values: ">
 			<item value="px">px</item>
 			<item value="pt">pt</item>
@@ -20,7 +24,7 @@
 		<param name="bottom_margin"  type="float"   min="-1000" max="1000" _gui-text="Bottom margin">0</param>
 		<param name="left_margin"  type="float"   min="-1000" max="1000" _gui-text="Left margin">0</param>
 		<param name="right_margin"  type="float"   min="-1000" max="1000" _gui-text="Right margin">0</param>
-		<param name="border_guides_info" type="description">If "Same margins" is checked, the value of top margin will be used for all sides, while the other values will be ignored. Margins can be negative for guides outside the document borders. Zero margin guides will not be drawn. To add guides exactly on all borders, use Edit > Guides Around Page instead.</param>
+		<param name="help_text" type="description">If "Same margins" is checked, the value of top margin will be used for all sides, while the other values will be ignored. Margins can be negative for guides outside the document borders. Zero margin guides will not be drawn for document guides. To add guides exactly on all borders the document, use Edit > Guides Around Page instead.</param>
 
 	<effect>
 		<object-type>all</object-type>
@@ -28,7 +32,9 @@
 			<submenu _name="Guides"/>
 		</effects-menu>
 	</effect>
+
 	<script>
 		<command reldir="extensions" interpreter="python">add_margin_guides.py</command>
 	</script>
+
 </inkscape-extension>
