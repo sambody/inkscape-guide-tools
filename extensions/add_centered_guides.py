@@ -3,7 +3,8 @@
 Add centered guides,
 extension by Samuel Dellicour,
 
-This extension creates horizontal and/or vertical guides through the center of the document
+This extension creates horizontal and vertical guides through 
+the center of the document (or the selected object, if it exists)
 
 # Licence
 Licence GPL v2
@@ -23,21 +24,26 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 # IMPORT
 
-
+import sys
 import inkex
 import gettext
 _ = gettext.gettext
 
+try:
+	from subprocess import Popen, PIPE
+except ImportError:
+	inkex.errormsg(_(
+		"Failed to import the subprocess module."
+		))
+	inkex.errormsg(
+		"Python version is : " + str(inkex.sys.version_info)
+		)
+	exit(1)
 
 # FUNCTIONS
 
-
-# To show debugging output, error messages
-def printDebug(string):
-	inkex.debug( _(str(string)) )
-
-def printError(string):
-	inkex.errormsg( _(str(string)) )
+# To show debugging output, error messages, use
+#	inkex.debug( _(str(string)) )
 
 # Draw single guide
 # parameters: position (single length), orientation ("horizontal/vertical"), parent
@@ -54,10 +60,6 @@ def drawGuide(position, orientation, parent):
 	# Create a sodipodi:guide node
 	inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString})
 
-def drawCenteredGuides(positionX, positionY, include_hor, include_vert, parent):
-
-	if include_hor: drawGuide(positionY, "horizontal", parent)
-	if include_vert: drawGuide(positionX, "vertical", parent)
 
 
 # CLASS
@@ -73,24 +75,12 @@ class addCenteredGuides(inkex.Effect):
 		# Call the base class constructor.
 		inkex.Effect.__init__(self)
 
-		# Define boolean option "--include_hor_guide"
-		self.OptionParser.add_option('--include_hor_guide',
-			action = 'store', type = 'inkbool',
-			dest = 'include_hor_guide', default = False,
-			help = 'Include centered horizontal guide')
 
-		# Define boolean option "--include_vert_guide"
-		self.OptionParser.add_option('--include_vert_guide',
-			action = 'store', type = 'inkbool',
-			dest = 'include_vert_guide', default = False,
-			help = 'Include centered vertical guide')
+
 
 	def effect(self):
 
-		# Get script's options values. Input.
 
-		include_hor = self.options.include_hor_guide
-		include_vert = self.options.include_vert_guide
 
 		# getting parent tag of the guides
 		namedview = self.document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
@@ -102,12 +92,39 @@ class addCenteredGuides(inkex.Effect):
 		canvas_width  = self.unittouu(svg.get('width'))
 		canvas_height = self.unittouu(svg.attrib['height'])
 
-		# calculate center of document
-		center_pos_x = canvas_width/2
-		center_pos_y = canvas_height/2
+
+		# If selected object exists, set guides to that object. 
+		# Otherwise, use document center guides
+		if self.options.ids:
+
+
+			# query bounding box, upper left corner (?)
+			q = {'x':0, 'y':0, 'width':0, 'height':0}
+			for query in q.keys():
+				p = Popen(
+					'inkscape --query-%s --query-id=%s "%s"' % (query, self.options.ids[0], self.args[-1], ),
+					shell=True,
+					stdout=PIPE,
+					stderr=PIPE,
+					)
+				p.wait()
+				q[query] = p.stdout.read()
+
+			# get center of bounding box
+			obj_width = float(q['width'])
+			obj_height = float(q['height'])
+			center_pos_x = float(q['x']) + obj_width/2
+			center_pos_y = ( canvas_height - float(q['y']) - obj_height ) + obj_height/2
+
+		else:
+
+			# Pick document center
+			center_pos_x = canvas_width/2
+			center_pos_y = canvas_height/2
 
 		# call the function. Output.
-		drawCenteredGuides(center_pos_x, center_pos_y, include_hor, include_vert, namedview)
+		drawGuide(center_pos_x, "vertical", namedview)
+		drawGuide(center_pos_y, "horizontal", namedview)
 
 
 # APPLY

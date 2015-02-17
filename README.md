@@ -3,24 +3,24 @@ Inkscape guide tools
 
 These are a series of [Inkscape](http://inkscape.org/) extensions related to guides.
 
-[Download the latest version](https://github.com/sambody/inkscape-guide-tools/archive/master.zip), compatible with Inkscape 0.91 and NOT compatible with Inkscape 0.49 or earlier.
+[Download the latest version](https://github.com/sambody/inkscape-guide-tools/archive/master.zip), compatible with Inkscape 0.91 and NOT compatible with Inkscape 0.48 or earlier.
 
-For a version compatible with Inkscape 0.49, [download the old version](https://github.com/sambody/inkscape-guide-tools/archive/1.0.zip), which has less features and will no longer be updated.
+For a version compatible with Inkscape 0.48 or ealier, [download the old version](https://github.com/sambody/inkscape-guide-tools/archive/1.0.zip), which has less features and will no longer be updated.
 
 ### The current bundled extensions are:
 
-1. Add centered guides to document
+1. Add centered guides to document or selection
 2. Add margin guides to document
 3. Add grid guides
 4. Remove selected guides
 
-### 1. Add centered guides to the document
+### 1. Add centered guides to the document or the selection
 
-With this extension you can quickly add a horizontal and/or vertical guide through the center of the document.
+For quickly adding centered horizontal AND vertical guides.
 
-![Add centered guides](img/centered.png)
+If an object is selected, the guides will be drawn through the center of **the bounding box of the selected object**. If no object is selected, the guides will be drawn through the center of **the document**. No user interface, no options.
 
-To add a guide through the center of a shape, turn on Snap to center in Inkscape options panel, then drag the guide to the center.
+Note: Alternatively, you can manually add a guide through the center of an object, by turning on "Snap to center" in the Inkscape options panel and dragging a guide to the center.
 
 ### 2. Add margin guides to document
 
