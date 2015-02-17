@@ -28,7 +28,6 @@ import sys
 import inkex
 import gettext
 _ = gettext.gettext
-
 try:
 	from subprocess import Popen, PIPE
 except ImportError:
@@ -40,7 +39,6 @@ except ImportError:
 		)
 	exit(1)
 
-# FUNCTIONS
 
 # To show debugging output, error messages, use
 #	inkex.debug( _(str(string)) )
@@ -52,17 +50,12 @@ def drawGuide(position, orientation, parent):
 	if orientation == "vertical":
 		orientationString = "1,0"
 		positionString = str(position) + ",0"
-
-	if orientation == "horizontal":
+	else:
 		orientationString = "0,1"
 		positionString = "0," + str(position)
 
 	# Create a sodipodi:guide node
 	inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString})
-
-
-
-# CLASS
 
 
 class addCenteredGuides(inkex.Effect):
@@ -76,11 +69,7 @@ class addCenteredGuides(inkex.Effect):
 		inkex.Effect.__init__(self)
 
 
-
-
 	def effect(self):
-
-
 
 		# getting parent tag of the guides
 		namedview = self.document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
@@ -96,7 +85,6 @@ class addCenteredGuides(inkex.Effect):
 		# If selected object exists, set guides to that object. 
 		# Otherwise, use document center guides
 		if self.options.ids:
-
 
 			# query bounding box, upper left corner (?)
 			q = {'x':0, 'y':0, 'width':0, 'height':0}
@@ -128,8 +116,6 @@ class addCenteredGuides(inkex.Effect):
 
 
 # APPLY
-
-
 # Create effect instance and apply it. Taking in SVG, changing it, and then outputing SVG
 effect = addCenteredGuides()
 effect.affect()
