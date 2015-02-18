@@ -80,12 +80,11 @@ class addCenteredGuides(inkex.Effect):
 		canvas_width  = self.unittouu(svg.get('width'))
 		canvas_height = self.unittouu(svg.attrib['height'])
 
-
-		# If selected object exists, set guides to that object. 
+		# If a selected object exists, set guides to that object. 
 		# Otherwise, use document center guides
 		if self.options.ids:
 
-			# query bounding box, upper left corner (?)
+			# query bounding box, UPPER LEFT corner (?)
 			q = {'x':0, 'y':0, 'width':0, 'height':0}
 			for query in q.keys():
 				p = Popen(
@@ -97,21 +96,21 @@ class addCenteredGuides(inkex.Effect):
 				p.wait()
 				q[query] = p.stdout.read()
 
-			# get center of bounding box
+			# get width, height, center of bounding box 
 			obj_width = float(q['width'])
 			obj_height = float(q['height'])
-			center_pos_x = float(q['x']) + obj_width/2
-			center_pos_y = ( canvas_height - float(q['y']) - obj_height ) + obj_height/2
+			center_x = float(q['x']) + obj_width/2
+			center_y = ( canvas_height - float(q['y']) - obj_height ) + obj_height/2
 
 		else:
 
-			# Pick document center
-			center_pos_x = canvas_width/2
-			center_pos_y = canvas_height/2
+			# Pick document center 
+			center_x = canvas_width/2 
+			center_y = canvas_height/2
 
 		# call the function. Output.
-		drawGuide(center_pos_x, "vertical", namedview)
-		drawGuide(center_pos_y, "horizontal", namedview)
+		drawGuide(center_x, "vertical", namedview)
+		drawGuide(center_y, "horizontal", namedview)
 
 
 # APPLY

@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 '''
 Add margin guides,
-extension by Samuel Dellicour,
+by Samuel Dellicour,
 
-The extension adds document margin guides: guides at a certain distance from the borders of the document.
+The extension adds document margin guides - guides at a certain distance 
+from the borders of the document (or the bounding box of a selected object).
 
 # Licence
 Licence GPL v2
@@ -60,7 +61,6 @@ def drawGuide(position, orientation, parent):
 
 # CLASS
 
-
 class addMarginGuides(inkex.Effect):
 
 	def __init__(self):
@@ -115,7 +115,7 @@ class addMarginGuides(inkex.Effect):
 
 	def effect(self):
 
-		# Get script's options values. Input.
+		# Get script's options values.
 		
 		# Factor to multiply in order to get user units (pixels)
 		factor = self.unittouu('1' + self.options.unit)

@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 '''
-Grid Maker by Samuel Dellicour - www.samplify.be,
+Add Grid Guides
+by Samuel Dellicour
+
+Adds a grid of guides - in columns with gutters (spacing between columns)
+
 heavily based on Guides creator - Copyright (C) 2008 Jonas Termeau - jonas.termeau **AT** gmail.com
 
 
@@ -31,11 +35,7 @@ _ = gettext.gettext
 
 # FUNCTIONS
 
-# To show debugging output
-def printDebug(string):
-	inkex.debug(_(str(string)))
-
-# To show error to user
+# To show error to user (or for debugging)
 def printError(string):
 	inkex.errormsg(_(str(string)))
 
@@ -92,27 +92,27 @@ def drawDoubleGuides(colsRows, width, gutter, start_pos, has_outer_gutter, orien
 			# if no gutter, draw single guide; if gutter, draw single or double guide
 			if gutter == 0:
 				drawGuide(position, orientation, parent)
-				position = position + width
+				position += width
 			else:
 				if has_outer_gutter == False:
 					drawGuide(position, orientation, parent)
-					position = position + width
+					position += width
 				else:
 					drawGuide(position, orientation, parent)
-					position = position + gutter
+					position += gutter
 					drawGuide(position, orientation, parent)
-					position = position + width
+					position += width
 
 		# other gutter (not first/last)
 		else:
 			if gutter == 0:
 				drawGuide(position, orientation, parent)
-				position = position + width
+				position += width
 			else:
 				drawGuide(position, orientation, parent)
-				position = position + gutter
+				position += gutter
 				drawGuide(position, orientation, parent)
-				position = position + width
+				position += width
 
 
 # CLASS
@@ -322,7 +322,7 @@ class Grid_Guides(inkex.Effect):
 
 			# Give total width in original units
 			if (show_total_width == True):
-				printDebug("Total width of grid will be: " + str(total_col_width/col_factor) + " " + self.options.column_unit)
+				printError("Total width of grid will be: " + str(total_col_width/col_factor) + " " + self.options.column_unit)
 
 		elif (tab == "\"rows\""):
 
@@ -356,7 +356,7 @@ class Grid_Guides(inkex.Effect):
 
 			# Give total height in original units
 			if (show_total_height == True):
-				printDebug("Total height of grid will be: " + str(total_row_height/row_factor) + " " + self.options.row_unit)
+				printError("Total height of grid will be: " + str(total_row_height/row_factor) + " " + self.options.row_unit)
 
 
 # Create effect instance and apply it.
