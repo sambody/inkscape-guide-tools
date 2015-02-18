@@ -23,43 +23,52 @@ On this page:
 
 ### 1. Add centered guides
 
-For quickly adding a horizontal AND vertical guide through the center of the document (or a selected object, if any). No user interface.
+For quickly adding a horizontal AND vertical guide through the center of the document or a selected object.
 
-- If no object is selected, the guides will be drawn through the center of **the document** (page).
-- If an object is selected, the guides will be drawn through the center of **the bounding box of the selected object**. Only works on a single object.
+![Add centered guides object](img/centeredguides1.png)
+Centered guides on the bounding box of a selected object.
+
+![Add centered guides document](img/centeredguides2.png)
+Centered guides on the document.
 
 ### 2. Add margin guides to document
 
-With this extension you can add guides at a certain distance (_margin_) from the borders of the document, OR (the bounding box of) a selected object. 
+With this extension you can add guides at a certain distance (_margin_) from the borders of the document or a (single) selected object. 
 
-![Add margin guides](img/margins.png)
+![Add margin guides](img/marginguides1.png)
+
+Margin guides to the document.
+
+![Add margin guides](img/marginguides2.png)
+
+Margin guides to the bounding box of a selected object.
 
 - Add them all at once for equal margins, or add different margins. 
 - Negative margins creates guides _outside_ the document/object borders. 
 - Zero margin guides (guides exactly on the border) of the document are not drawn - use **Edit > Guides around page** for that. 
-- Use any unit (pixels, mm, in, etc). Independant of your document's units.
+- Use any unit (pixels, mm, in, etc), independant of your document's units.
 
 ### 3. Add grid guides
 
 This extension will generate guides in a grid of **equal width columns (or rows) with gutters** (spacing between columns). With optional centered guides inside gutters. Use any unit (pixels, mm, etc).
 
-**Example 1**: Columns (vertical guides), with gutters, centered on the document
+The grid dimensions are defined by the number of columns, the column width and gutter width. Examples:
 
-![grid maker with columns](img/grid.png)
+![grid guides](img/gridguides1.png)
 
-**Example 2**: Rows (horizontal guides), gutters set to 0, top aligned
+Columns (vertical guides) without gutters (gutter width set to 0), centered on the document.
 
-![grid maker with rows](img/grid-rows.png)
+![grid guides](img/gridguides1.png)
 
-- Create **columns** (vertical guides), or **rows** (horizontal guides)with or without gutters ;
-- The grid is defined by **the number of columns, the column width and gutter width**;
-- Option: Generate **evenly spaced guides** *without* gutters simply by setting gutter width to 0;
-- Option: add **centered guides in the middle of the gutters**;
-- Choose to align the grid in relation to the page: left aligned, centered or right aligned;
-- Option: add an extra horizontal/vertical offset, for example to generate the grid at a certain distance from the page border (when left/right aligned); this offset can be negative;
-- Option: delete all existing horizontal/vertical guides before generating the new guides;
-- Option: see a preview using Live preview, to test different widths.
-- Option: let it give you the total width (or height for rows) - useful when generating a grid that needs to be contained within a certain width (or height).
+Columns with gutters, no outer gutters.
+
+![grid guides](img/gridguides3.png)
+
+Columns with additional guides through the middle of the gutters, with outer gutters.
+
+![grid guides](img/gridguides4.png)
+
+Guides in rows with gutters, top aligned.
 
 _Limitations:_
 
@@ -69,7 +78,7 @@ _Limitations:_
 
 Selectively remove all horizontal and/or vertical and/or angled (diagonal) guides. 
 
-![Remove selected guides](img/remove.png)
+![Remove selected guides](img/removeselectedguides.png)
 
 Tip: To remove ALL guides from your document, instead of using this extension, just go to *Edit > Delete all guides* (Inkscape 0.91 and up)
 
