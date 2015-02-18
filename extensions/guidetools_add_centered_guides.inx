@@ -3,6 +3,8 @@
 	<id>samplify.guidetools_add_centered_guides</id>
 	<dependency type="executable" location="extensions">guidetools_add_centered_guides.py</dependency>
 
+	<param name="extension_description" type="description">This will add a horizontal and a vertical guide through the center of  the selected object (if any), or of the document (if no object is selected)</param>
+
 	<effect>
 		<object-type>all</object-type>
 		<effects-menu>
