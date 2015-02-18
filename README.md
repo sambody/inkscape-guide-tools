@@ -60,7 +60,7 @@ The grid dimensions are defined by the number of columns, the column width and g
 
 Columns (vertical guides) without gutters (gutter width set to 0), centered on the page.
 
-![grid guides](img/gridguides1.png)
+![grid guides](img/gridguides2.png)
 
 Columns with gutters, no outer gutters.
 
