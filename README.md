@@ -25,25 +25,25 @@ On this page:
 
 For quickly adding a horizontal AND vertical guide through the center of the page or a selected object.
 
+Centered guides on the bounding box of a selected object:
+
 ![Add centered guides object](img/centeredguides1.png)
 
-Centered guides on the bounding box of a selected object.
+Centered guides on the page:
 
 ![Add centered guides page](img/centeredguides2.png)
-
-Centered guides on the page.
 
 ### 2. Add margin guides to page or object
 
 With this extension you can add guides at a certain distance (_margin_) from the borders of the page or a (single) selected object. 
 
+Margin guides to the page:
+
 ![Add margin guides](img/marginguides1.png)
 
-Margin guides to the page.
+Margin guides to the bounding box of a selected object:
 
 ![Add margin guides](img/marginguides2.png)
-
-Margin guides to the bounding box of a selected object.
 
 - Add them all at once for equal margins, or add different margins. 
 - Negative margins creates guides _outside_ the page/object borders. 
@@ -56,21 +56,21 @@ This extension will generate guides in a grid of **equal width columns (or rows)
 
 The grid dimensions are defined by the number of columns, the column width and gutter width. Examples:
 
+Columns (vertical guides) without gutters (gutter width set to 0), centered on the page:
+
 ![grid guides](img/gridguides1.png)
 
-Columns (vertical guides) without gutters (gutter width set to 0), centered on the page.
+Columns with gutters, no outer gutters:
 
 ![grid guides](img/gridguides2.png)
 
-Columns with gutters, no outer gutters.
+Columns with additional guides through the middle of the gutters, with outer gutters:
 
 ![grid guides](img/gridguides3.png)
 
-Columns with additional guides through the middle of the gutters, with outer gutters.
+Guides in rows with gutters, top aligned:
 
 ![grid guides](img/gridguides4.png)
-
-Guides in rows with gutters, top aligned.
 
 _Limitations:_
 
