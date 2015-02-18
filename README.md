@@ -12,25 +12,23 @@ These are a series of [Inkscape](http://inkscape.org/) extensions related to gui
 3. Add grid guides
 4. Remove selected guides
 
-### 1. Add centered guides to the document or the selection
+### 1. Add centered guides
 
-For quickly adding centered horizontal AND vertical guides. No user interface:
+For quickly adding a horizontal AND vertical guide through the center of the document (or a selected object, if any). No user interface.
 
 - If no object is selected, the guides will be drawn through the center of **the document** (page).
 - If an object is selected, the guides will be drawn through the center of **the bounding box of the selected object**. Only works on a single object.
-
-Tip: Alternatively, you can manually add a guide through the center of an object, by turning on "Snap to center" in the Inkscape options panel and dragging a guide to the center. 
 
 ### 2. Add margin guides to document
 
 With this extension you can add guides at a certain distance (_margin_) from the borders of the document, OR (the bounding box of) a selected object. 
 
+![Add margin guides](img/margins.png)
+
 - Add them all at once for equal margins, or add different margins. 
 - Negative margins creates guides _outside_ the document/object borders. 
 - Zero margin guides (guides exactly on the border) of the document are not drawn - use **Edit > Guides around page** for that. 
 - Use any unit (pixels, mm, in, etc). Independant of your document's units.
-
-![Add margin guides](img/margins.png)
 
 ### 3. Add grid guides
 
@@ -62,9 +60,9 @@ _Limitations:_
 
 Selectively remove all horizontal and/or vertical and/or angled (diagonal) guides. 
 
-Tip: To remove ALL guides from your document, instead of using this extension, just go to *Edit > Delete all guides* (Inkscape 0.91 and up)
-
 ![Remove selected guides](img/remove.png)
+
+Tip: To remove ALL guides from your document, instead of using this extension, just go to *Edit > Delete all guides* (Inkscape 0.91 and up)
 
 -----
 
@@ -83,7 +81,7 @@ To install:
 - on Linux: " /home/yourusername/.config/inkscape/extensions" (.config is a hidden folder)
 - on OS X: "/Applications/Inkscape.app/Contents/Resources/extensions" 
 
-4. Restart or open Inkscape.
+Restart or open Inkscape.
 
 ### Where to find the extensions menu
 
