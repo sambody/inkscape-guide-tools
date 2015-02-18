@@ -2,9 +2,9 @@
 <inkscape-extension>
 
 	<_name>Add Grid Guides</_name>
-	<id>samplify.gridmaker</id>
+	<id>samplify.guidetools_add_grid_guides</id>
 
-	<dependency type="executable" location="extensions">add_grid_guides.py</dependency>
+	<dependency type="executable" location="extensions">guidetools_add_grid_guides.py</dependency>
 	<dependency type="executable" location="extensions">inkex.py</dependency>
 
 	<param name="tab" type="notebook">
@@ -77,7 +77,7 @@
 	</effect>
 
 	<script>
-		<command reldir="extensions" interpreter="python">add_grid_guides.py</command>
+		<command reldir="extensions" interpreter="python">guidetools_add_grid_guides.py</command>
 	</script>
 
 </inkscape-extension>

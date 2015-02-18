@@ -1,7 +1,7 @@
 <inkscape-extension>
 	<_name>Add Margin Guides to document or selection</_name>
-	<id>samplify.add_margin_guides</id>
-	<dependency type="executable" location="extensions">add_margin_guides.py</dependency>
+	<id>samplify.guidetools_add_margin_guides</id>
+	<dependency type="executable" location="extensions">guidetools_add_margin_guides.py</dependency>
 		
 		<param name="extension_description" type="description">Add guides at a certain distance (margin) from the borders of the document or the selection. </param>
 		<param name="target" type="enum" _gui-text="Add guides in relation to ">
@@ -34,7 +34,7 @@
 	</effect>
 
 	<script>
-		<command reldir="extensions" interpreter="python">add_margin_guides.py</command>
+		<command reldir="extensions" interpreter="python">guidetools_add_margin_guides.py</command>
 	</script>
 
 </inkscape-extension>
