@@ -3,6 +3,15 @@ Inkscape guide tools
 
 These are a series of [Inkscape](http://inkscape.org/) extensions related to guides.
 
+On this page:
+
+- Explanation of all bundled extension
+- How to download and install
+- Where to find the extensions menu
+- Tips
+- What's next
+- Licence and credits
+
 -----
 
 ### The bundled extensions:

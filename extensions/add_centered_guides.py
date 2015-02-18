@@ -46,7 +46,7 @@ except ImportError:
 # parameters: position (single length), orientation ("horizontal/vertical"), parent
 def drawGuide(position, orientation, parent):
 
-	if orientation == "vertical":
+	if (orientation == "vertical"):
 		orientationString = "1,0"
 		positionString = str(position) + ",0"
 	else:
