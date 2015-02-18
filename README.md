@@ -5,7 +5,7 @@ These are a series of [Inkscape](http://inkscape.org/) extensions related to gui
 
 On this page:
 
-- Explanation of all bundled extension
+- Explanation of all bundled extensions
 - How to download and install
 - Where to find the extensions menu
 - Tips
@@ -16,37 +16,39 @@ On this page:
 
 ### The bundled extensions:
 
-1. Add centered guides to document or selection
-2. Add margin guides to document or selection
+1. Add centered guides to page or selection
+2. Add margin guides to page or selection
 3. Add grid guides
 4. Remove selected guides
 
-### 1. Add centered guides
+### 1. Add centered guides to page or object
 
-For quickly adding a horizontal AND vertical guide through the center of the document or a selected object.
+For quickly adding a horizontal AND vertical guide through the center of the page or a selected object.
 
 ![Add centered guides object](img/centeredguides1.png)
+
 Centered guides on the bounding box of a selected object.
 
-![Add centered guides document](img/centeredguides2.png)
-Centered guides on the document.
+![Add centered guides page](img/centeredguides2.png)
 
-### 2. Add margin guides to document
+Centered guides on the page.
 
-With this extension you can add guides at a certain distance (_margin_) from the borders of the document or a (single) selected object. 
+### 2. Add margin guides to page or object
+
+With this extension you can add guides at a certain distance (_margin_) from the borders of the page or a (single) selected object. 
 
 ![Add margin guides](img/marginguides1.png)
 
-Margin guides to the document.
+Margin guides to the page.
 
 ![Add margin guides](img/marginguides2.png)
 
 Margin guides to the bounding box of a selected object.
 
 - Add them all at once for equal margins, or add different margins. 
-- Negative margins creates guides _outside_ the document/object borders. 
-- Zero margin guides (guides exactly on the border) of the document are not drawn - use **Edit > Guides around page** for that. 
-- Use any unit (pixels, mm, in, etc), independant of your document's units.
+- Negative margins creates guides _outside_ the page/object borders. 
+- Zero margin guides (guides exactly on the border) of the page are not drawn - use **Edit > Guides around page** for that. 
+- Use any unit (pixels, mm, in, etc), independant of your page's units.
 
 ### 3. Add grid guides
 
@@ -56,7 +58,7 @@ The grid dimensions are defined by the number of columns, the column width and g
 
 ![grid guides](img/gridguides1.png)
 
-Columns (vertical guides) without gutters (gutter width set to 0), centered on the document.
+Columns (vertical guides) without gutters (gutter width set to 0), centered on the page.
 
 ![grid guides](img/gridguides1.png)
 
@@ -80,7 +82,7 @@ Selectively remove all horizontal and/or vertical and/or angled (diagonal) guide
 
 ![Remove selected guides](img/removeselectedguides.png)
 
-Tip: To remove ALL guides from your document, instead of using this extension, just go to *Edit > Delete all guides* (Inkscape 0.91 and up)
+Tip: To remove ALL guides from your page, instead of using this extension, just go to *Edit > Delete all guides* (Inkscape 0.91 and up)
 
 -----
 
@@ -119,9 +121,9 @@ The extensions will all be available in the menu under **Extensions > Guide**.
 I'm thinking of adding the following features in the future:
 
 - For Inkscape 0.91: add color and label to guides when generating.
-- It would be nice to also make an "outside in" grid building extension - where you would set a _total width_, a gutter width, and number of columns, and the extension would calculate the columns width and draw the guides. The total width could be defined by a number, or by the document (like the Guide Creator extension, with or without margins), or by the bounding box of a selection...
+- It would be nice to also make an "outside in" grid building extension - where you would set a _total width_, a gutter width, and number of columns, and the extension would calculate the columns width and draw the guides. The total width could be defined by a number, or by the page (like the Guide Creator extension, with or without margins), or by the bounding box of a selection...
 - ~~Adding centered guides in gutters.~~ Done
-- ~~It would be nice if the Margin guides, Centered guides and Grid guides would work _on selected objects_ instead of only on the document.~~ Done
+- ~~It would be nice if the Margin guides, Centered guides and Grid guides would work _on selected objects_ instead of only on the page.~~ Done
 - ~~Remove the "Remove all guides" extension.~~ Done. It's part of Inkscape 0.91 core.
 - ~~For Inkscape 0.91: check how units work, adapt extensions accordingly.~~ Done. The extensions are now compatible with Inkscape 0.91.
 - ~~The Add Grid Guides and Add Margin Guides should be able to work with other units than pixels. And should not always have to be on round pixel positions.~~  Done - you can now use units different from pixels.

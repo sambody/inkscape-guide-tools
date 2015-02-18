@@ -1,11 +1,11 @@
 <inkscape-extension>
-	<_name>Add Centered Guides to Document or Selection</_name>
+	<_name>Add Centered Guides to Page or Selection</_name>
 	<id>samplify.guidetools_add_centered_guides</id>
 	<dependency type="executable" location="extensions">guidetools_add_centered_guides.py</dependency>
 
-	<param name="extension_description" type="description">This will add a horizontal and a vertical guide through the center of  the selected object or the document</param>
+	<param name="extension_description" type="description">This will add a horizontal and a vertical guide through the center of  the selected object or the page</param>
 	<param name="target" type="enum" _gui-text="Add centered guides to ">
-		<item value="document">the document</item>
+		<item value="document">the page</item>
 		<item value="selection">the selected object</item>
 	</param>
 

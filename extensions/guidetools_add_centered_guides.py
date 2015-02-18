@@ -4,7 +4,7 @@ Add centered guides,
 extension by Samuel Dellicour,
 
 This extension creates horizontal and vertical guides through 
-the center of the document (or the selected object, if it exists)
+the center of the document or the selected object
 
 # Licence
 Licence GPL v2

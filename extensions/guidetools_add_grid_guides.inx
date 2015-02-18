@@ -9,7 +9,7 @@
 
 	<param name="tab" type="notebook">
 		<page name="columns" _gui-text="Columns">
-			<param name="description-cols" type="description">Generate vertical guides for an equal columns grid. Defined by number of columns, column width and gutter width.</param>
+			<param name="description-cols" type="description">Generate vertical guides for an equal columns grid.</param>
 			<param name="column_unit" type="enum" _gui-text="Unit of values: ">
 				<item value="px">px</item>
 				<item value="pt">pt</item>
@@ -26,7 +26,7 @@
 			<param name="column_gutter"  type="float"   min="0" max="1000" _gui-text="Gutter width (spacing between columns, can be 0):">10</param>
 			<param name="include_outer_col_gutter" type="boolean" _gui-text="Include outer gutters">true</param>
 			<param name="include_center_col_guides" type="boolean" _gui-text="Include centered guides in gutters">false</param>
-			<param name="column_alignment" type="enum" _gui-text="Alignment in relation to the document:">
+			<param name="column_alignment" type="enum" _gui-text="Alignment in relation to the page:">
 				<_item value="left">Left aligned</_item>
 				<_item value="centered">Centered</_item>
 				<_item value="right">Right aligned</_item>
