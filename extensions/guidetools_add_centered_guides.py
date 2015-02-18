@@ -67,8 +67,17 @@ class addCenteredGuides(inkex.Effect):
 		# Call the base class constructor.
 		inkex.Effect.__init__(self)
 
+		# Define string option "--target"
+		self.OptionParser.add_option('--target',
+				action="store", type="string", 
+				dest="target", default="document",
+				help="Target: document or selection")
+
 
 	def effect(self):
+
+		# document or selection
+		target = self.options.target
 
 		# getting parent tag of the guides
 		namedview = self.document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
@@ -81,8 +90,13 @@ class addCenteredGuides(inkex.Effect):
 		canvas_height = self.unittouu(svg.attrib['height'])
 
 		# If a selected object exists, set guides to that object. 
-		# Otherwise, use document center guides
-		if self.options.ids:
+		# Otherwise, use document center guides		
+		if (target == "selection"):
+
+			# check if there is any selection
+			if not self.options.ids:
+				inkex.errormsg(_("Please select an object first"))
+				exit()
 
 			# query bounding box, UPPER LEFT corner (?)
 			q = {'x':0, 'y':0, 'width':0, 'height':0}
