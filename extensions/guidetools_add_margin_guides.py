@@ -71,6 +71,11 @@ class addMarginGuides(inkex.Effect):
 		# Call the base class constructor.
 		inkex.Effect.__init__(self)
 
+		self.OptionParser.add_option("--tab",
+				action="store", type="string",
+				dest="tab", default="columns",
+				help="")
+
 		# Define string option "--unit"
 		self.OptionParser.add_option('--unit',
 				action="store", type="string", 
