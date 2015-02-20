@@ -1,7 +1,9 @@
 <inkscape-extension>
 	<_name>Add Margin Guides to Page or Selection</_name>
 	<id>samplify.guidetools_add_margin_guides</id>
+	<dependency type="executable" location="extensions">guidetools.py</dependency>
 	<dependency type="executable" location="extensions">guidetools_add_margin_guides.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
 		
 		<param name="tab" type="notebook">
 			<page name="margin-guides" _gui-text="Margin Guides">

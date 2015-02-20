@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 import inkex
 import gettext
 _ = gettext.gettext
+import guidetools
 try:
 	from subprocess import Popen, PIPE
 except ImportError:
@@ -42,23 +43,6 @@ except ImportError:
 # To show debugging output, error messages, use
 #	inkex.debug( _(str(string)) )
 
-# Draw single guide
-# parameters: position (single length), orientation ("horizontal/vertical"), parent
-def drawGuide(position, orientation, parent):
-
-	if (orientation == "vertical"):
-		orientationString = "1,0"
-		positionString = str(position) + ",0"
-	else:
-		orientationString = "0,1"
-		positionString = "0," + str(position)
-
-	# Create a sodipodi:guide node
-	inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString})
-
-	# Adding color to guide - not working in 0.91, as Inkscape doesn't read it, although it is written in the xml.
-	# Let's wait for 0.92 to implement this then.
-	# inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString, '{http://www.inkscape.org/namespaces/inkscape}color':"rgb(255,0,0)"})
 
 
 class addCenteredGuides(inkex.Effect):
@@ -127,8 +111,8 @@ class addCenteredGuides(inkex.Effect):
 			center_y = canvas_height/2
 
 		# call the function. Output.
-		drawGuide(center_x, "vertical", namedview)
-		drawGuide(center_y, "horizontal", namedview)
+		guidetools.drawGuide(center_x, "vertical", namedview)
+		guidetools.drawGuide(center_y, "horizontal", namedview)
 
 
 # APPLY

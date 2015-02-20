@@ -4,6 +4,7 @@
 	<_name>Add Grid Guides</_name>
 	<id>samplify.guidetools_add_grid_guides</id>
 
+	<dependency type="executable" location="extensions">guidetools.py</dependency>
 	<dependency type="executable" location="extensions">guidetools_add_grid_guides.py</dependency>
 	<dependency type="executable" location="extensions">inkex.py</dependency>
 

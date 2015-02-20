@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 import inkex
 import gettext
 _ = gettext.gettext
+import guidetools
 try:
 	from subprocess import Popen, PIPE
 except ImportError:
@@ -42,22 +43,6 @@ except ImportError:
 
 
 # To show debugging output or error messages, use: inkex.debug( _(str(string)) )
-
-# Draw single guide
-# parameters: position (single length), orientation ("horizontal/vertical"), parent
-def drawGuide(position, orientation, parent):
-
-	if orientation == "vertical":
-		orientationString = "1,0"
-		positionString = str(position) + ",0"
-
-	if orientation == "horizontal":
-		orientationString = "0,1"
-		positionString = "0," + str(position)
-
-	# Create a sodipodi:guide node
-	inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString})
-
 
 # CLASS
 
@@ -187,10 +172,10 @@ class addMarginGuides(inkex.Effect):
 
 			# Draw the four margin guides
 			# TODO: only draw if not on border
-			drawGuide(top_pos, "horizontal", namedview)
-			drawGuide(right_pos, "vertical", namedview)
-			drawGuide(bottom_pos, "horizontal", namedview)
-			drawGuide(left_pos, "vertical", namedview)
+			guidetools.drawGuide(top_pos, "horizontal", namedview)
+			guidetools.drawGuide(right_pos, "vertical", namedview)
+			guidetools.drawGuide(bottom_pos, "horizontal", namedview)
+			guidetools.drawGuide(left_pos, "vertical", namedview)
 
 		else:		
 
@@ -207,10 +192,10 @@ class addMarginGuides(inkex.Effect):
 			left_pos = left_margin
 
 			# Draw the four margin guides (if margin exists)
-			if top_pos != canvas_height: drawGuide(top_pos, "horizontal", namedview)
-			if right_pos != canvas_width: drawGuide(right_pos, "vertical", namedview)
-			if bottom_pos != 0: drawGuide(bottom_pos, "horizontal", namedview)
-			if left_pos != 0: drawGuide(left_pos, "vertical", namedview)
+			if top_pos != canvas_height: guidetools.drawGuide(top_pos, "horizontal", namedview)
+			if right_pos != canvas_width: guidetools.drawGuide(right_pos, "vertical", namedview)
+			if bottom_pos != 0: guidetools.drawGuide(bottom_pos, "horizontal", namedview)
+			if left_pos != 0: guidetools.drawGuide(left_pos, "vertical", namedview)
 
 
 # APPLY

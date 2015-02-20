@@ -32,87 +32,7 @@ import inkex
 from simplestyle import *
 import gettext
 _ = gettext.gettext
-
-# FUNCTIONS
-
-# To show error to user (or for debugging)
-def printError(string):
-	inkex.errormsg(_(str(string)))
-
-# Delete all/vertical/horizontal guides
-def deleteGuidesByOrientation(document, orientation):
-
-	# getting the parent's tag of the guides
-	namedview = document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
-
-	# getting all the guides
-	children = document.xpath('/svg:svg/sodipodi:namedview/sodipodi:guide',namespaces=inkex.NSS)
-
-	# depending on which type of guide to remove, remove them
-	if (orientation == 'all'):
-		for element in children:
-			namedview.remove(element)
-	elif (orientation == 'horizontal'):
-		for element in children:
-			if (element.get('orientation') == '0,1'):
-				namedview.remove(element)
-	elif (orientation == 'vertical'):
-		for element in children:
-			if (element.get('orientation') == '1,0'):
-				namedview.remove(element)
-
-# Draw single guide
-# based on position (length), orientation ("horizontal/vertical"), parent
-def drawGuide(position, orientation, parent):
-
-		if orientation == "vertical":
-				orientationString = "1,0"
-				positionString = str(position) + ",0"
-
-		if orientation == "horizontal":
-				orientationString = "0,1"
-				positionString = "0," + str(position)
-
-		# Create a sodipodi:guide node
-		inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString})
-
-
-# Draw series of guides with or without gutter - same function called for columns and rows
-def drawDoubleGuides(colsRows, width, gutter, start_pos, has_outer_gutter, orientation, parent):
-
-	# position of guide
-	position = start_pos
-
-	# Draw series of double guides (or single guides when no gutter)
-	for i in range(0, colsRows+1):
-
-		# if first or last gutter
-		if ( i == 0 or i == colsRows ):
-
-			# if no gutter, draw single guide; if gutter, draw single or double guide
-			if gutter == 0:
-				drawGuide(position, orientation, parent)
-				position += width
-			else:
-				if has_outer_gutter == False:
-					drawGuide(position, orientation, parent)
-					position += width
-				else:
-					drawGuide(position, orientation, parent)
-					position += gutter
-					drawGuide(position, orientation, parent)
-					position += width
-
-		# other gutter (not first/last)
-		else:
-			if gutter == 0:
-				drawGuide(position, orientation, parent)
-				position += width
-			else:
-				drawGuide(position, orientation, parent)
-				position += gutter
-				drawGuide(position, orientation, parent)
-				position += width
+import guidetools
 
 
 # CLASS
@@ -294,7 +214,7 @@ class Grid_Guides(inkex.Effect):
 
 			# Delete existing vertical guides
 			if (delete_vert):
-				deleteGuidesByOrientation(self.document, 'vertical')
+				guidetools.deleteGuidesByOrientation(self.document, 'vertical')
 
 			# Set horizontal starting position, depending on grid alignment
 			if (col_alignment == 'left'):
@@ -307,7 +227,7 @@ class Grid_Guides(inkex.Effect):
 				hor_start = canvas_width - total_col_width + col_offset
 
 			# Create column guides with column_spacings
-			drawDoubleGuides(cols, col_width, col_gut, hor_start, has_outer_col_gutter, "vertical", namedview)
+			guidetools.drawDoubleGuides(cols, col_width, col_gut, hor_start, has_outer_col_gutter, "vertical", namedview)
 
 			# Center guides columns
 			if (has_outer_col_gutter == True):
@@ -318,16 +238,16 @@ class Grid_Guides(inkex.Effect):
 				center_hor_start = hor_start + (col_gut/2) + col_width
 			# Draw centered guides if necessary 
 			if col_gut > 0 and has_center_col_guides == True:
-				drawDoubleGuides(center_cols, col_width + col_gut, 0, center_hor_start, has_outer_col_gutter, "vertical", namedview)
+				guidetools.drawDoubleGuides(center_cols, col_width + col_gut, 0, center_hor_start, has_outer_col_gutter, "vertical", namedview)
 
 			# Give total width in original units
 			if (show_total_width == True):
-				printError("Total width of grid will be: " + str(total_col_width/col_factor) + " " + self.options.column_unit)
+				guidetools.show("Total width of grid will be: " + str(total_col_width/col_factor) + " " + self.options.column_unit)
 
 		elif (tab == "\"rows\""):
 
 			# Delete existing horizontal guides
-			if (delete_hor): deleteGuidesByOrientation(self.document, 'horizontal')
+			if (delete_hor): guidetools.deleteGuidesByOrientation(self.document, 'horizontal')
 
 			# Set vertical starting position, depending on grid alignment
 			# 0,0 is at BOTTOM left of document, guides will be drawn bottom up
@@ -341,7 +261,7 @@ class Grid_Guides(inkex.Effect):
 				vert_start =  -row_offset
 
 			# Create row guides
-			drawDoubleGuides(rows, row_height, row_gut, vert_start, has_outer_row_gutter, "horizontal", namedview)
+			guidetools.drawDoubleGuides(rows, row_height, row_gut, vert_start, has_outer_row_gutter, "horizontal", namedview)
 
 			# Center guides rows
 			if (has_outer_row_gutter == True):
@@ -352,11 +272,11 @@ class Grid_Guides(inkex.Effect):
 				center_vert_start = vert_start + (row_gut/2) + row_height
 			# Draw centered guides if necessary 
 			if row_gut > 0 and has_center_row_guides == True:
-				drawDoubleGuides(center_rows, row_height + row_gut, 0, center_vert_start, has_outer_row_gutter, "horizontal", namedview)
+				guidetools.drawDoubleGuides(center_rows, row_height + row_gut, 0, center_vert_start, has_outer_row_gutter, "horizontal", namedview)
 
 			# Give total height in original units
 			if (show_total_height == True):
-				printError("Total height of grid will be: " + str(total_row_height/row_factor) + " " + self.options.row_unit)
+				guidetools.show("Total height of grid will be: " + str(total_row_height/row_factor) + " " + self.options.row_unit)
 
 
 # Create effect instance and apply it.
