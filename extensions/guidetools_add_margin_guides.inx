@@ -8,7 +8,7 @@
 
 				<param name="extension_description" type="description">Add guides at a certain distance (margin) from the borders of the page or the selected object.</param>
 				<param name="target" type="enum" _gui-text="Add guides to ">
-					<item value="document">the document</item>
+					<item value="document">the page</item>
 					<item value="selection">the selected object</item> 
 				</param>
 				<param name="unit" type="enum" _gui-text="Unit of values: ">
