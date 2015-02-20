@@ -1,25 +1,9 @@
 Inkscape guide tools
 ===================
 
-These are a series of [Inkscape](http://inkscape.org/) extensions related to guides.
-
-On this page:
-
-- Explanation of all bundled extensions
-- How to download and install
-- Where to find the extensions menu
-- Tips
-- What's next
-- Licence and credits
+These are a series of [Inkscape](http://inkscape.org/) extensions related to guides: Add centered guides to page or selection, Add margin guides to page or selection, Add grid guides and Remove selected guides
 
 -----
-
-### The bundled extensions:
-
-1. Add centered guides to page or selection
-2. Add margin guides to page or selection
-3. Add grid guides
-4. Remove selected guides
 
 ### 1. Add centered guides to page or object
 
