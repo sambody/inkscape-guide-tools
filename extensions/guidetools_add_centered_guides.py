@@ -56,6 +56,10 @@ def drawGuide(position, orientation, parent):
 	# Create a sodipodi:guide node
 	inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString})
 
+	# Adding color to guide - not working in 0.91, as Inkscape doesn't read it, although it is written in the xml.
+	# Let's wait for 0.92 to implement this then.
+	# inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString, '{http://www.inkscape.org/namespaces/inkscape}color':"rgb(255,0,0)"})
+
 
 class addCenteredGuides(inkex.Effect):
 
