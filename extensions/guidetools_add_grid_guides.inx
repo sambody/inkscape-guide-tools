@@ -64,7 +64,7 @@
 			<param name="delete_hor_guides" type="boolean" _gui-text="Delete existing horizontal guides before generating">false</param>
 		</page>
 		<page name="help" _gui-text="Help">
-			<param name="help_text" type="description">This extension allows you to create a grid - a series of guides to make equal width columns (or rows) with gutters - the spacing between columns. Gutter width can be zero to generate equal distance guides. The generated grid can be aligned in relation to the borders of the page, or centered to the page, and can have an extra custom offset, which can be negative. Center guides are optional guides in the center of gutters. If center guides are to be positioned on a round number, be sure to set gutter size to an even number.</param>
+			<param name="help_text" type="description">This extension allows you to create a grid - a series of guides to make equal width columns (or rows) with gutters - the spacing between columns. Gutter width can be zero to generate equal distance guides. The generated grid can be aligned in relation to the borders of the page, or centered to the page, and can have an extra custom offset, which can be negative. Center guides are optional guides in the center of gutters. If center guides are to be positioned on a round number, set gutter width to an even number.</param>
 		</page>
 	</param>
 
