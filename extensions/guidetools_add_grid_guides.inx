@@ -38,7 +38,7 @@
 			<param name="show_total_width" type="boolean" _gui-text="Show total width before generating">false</param>
 		</page>
 		<page name="rows" _gui-text="Rows">
-			<param name="description-rows" type="description">Generate horizontal guides for equal rows grid. Defined by number of rows, row height and gutter height.</param>
+			<param name="description-rows" type="description">Generate horizontal guides for an equal rows grid.</param>
 			<param name="row_unit" type="enum" _gui-text="Unit of values: ">
 				<item value="px">px</item>
 				<item value="pt">pt</item>
