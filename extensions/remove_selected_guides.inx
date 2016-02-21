@@ -1,0 +1,17 @@
+<inkscape-extension>
+  <_name>Remove Selected Guides</_name>
+  <id>samplify.remove_selected_guides</id>
+  <dependency type="executable" location="extensions">remove_selected_guides.py</dependency>
+      <param name="remove_hor_guide"  type="boolean"   _gui-text="Remove all horizontal guides">true</param>
+      <param name="remove_vert_guide"  type="boolean"   _gui-text="Remove all vertical guides">true</param>
+      <param name="remove_ang_guide"  type="boolean"   _gui-text="Remove all angled guides">true</param>
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+       <submenu _name="Guides"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command reldir="extensions" interpreter="python">remove_selected_guides.py</command>
+  </script>
+</inkscape-extension>

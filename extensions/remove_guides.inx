@@ -1,0 +1,14 @@
+<inkscape-extension>
+  <_name>Remove All Guides</_name>
+  <id>samplify.remove_guides</id>
+  <dependency type="executable" location="extensions">remove_guides.py</dependency>
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+       <submenu _name="Guides"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command reldir="extensions" interpreter="python">remove_guides.py</command>
+  </script>
+</inkscape-extension>

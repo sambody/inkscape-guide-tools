@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension>
+
+	<_name>Add Grid Guides</_name>
+	<id>samplify.gridmaker</id>
+
+	<dependency type="executable" location="extensions">add_grid_guides.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
+
+	<param name="tab" type="notebook">
+		<page name="columns" _gui-text="Columns">
+			<param name="description-cols" type="description">Generate vertical guides for an equal columns grid. Defined by number of columns, column width and gutter width.</param>
+			<param name="column_unit" type="enum" _gui-text="Unit of values: ">
+				<item value="px">px</item>
+				<item value="pt">pt</item>
+				<item value="in">in</item>
+				<item value="ft">ft</item>
+				<item value="yd">yd</item>
+				<item value="mm">mm</item>
+				<item value="cm">cm</item>
+				<item value="m">m</item>
+				<item value="km">km</item>
+			</param>
+			<param name="columns"  type="int"   min="1" max="500" _gui-text="Number of columns:">12</param>
+			<param name="column_width"  type="float"   min="1" max="5000" _gui-text="Column width:">50</param>
+			<param name="column_gutter"  type="float"   min="0" max="1000" _gui-text="Gutter width (spacing between columns, can be 0):">10</param>
+			<param name="include_outer_col_gutter" type="boolean" _gui-text="Include outer gutters">true</param>
+			<param name="column_alignment" type="enum" _gui-text="Alignment in relation to the document:">
+				<_item value="left">Left aligned</_item>
+				<_item value="centered">Centered</_item>
+				<_item value="right">Right aligned</_item>
+			</param>
+			<param name="column_offset"  type="float"   min="-5000" max="5000" _gui-text="Additional horizontal offset (optional, can be negative):">0</param>
+			<param name="description-separator" type="description">----------</param>
+			<param name="delete_vert_guides" type="boolean" _gui-text="Delete existing vertical guides before generating">false</param>
+			<param name="show_total_width" type="boolean" _gui-text="Show total width before generating">false</param>
+		</page>
+		<page name="rows" _gui-text="Rows">
+			<param name="description-rows" type="description">Generate horizontal guides for equal rows grid. Defined by number of rows, row height and gutter height.</param>
+			<param name="row_unit" type="enum" _gui-text="Unit of values: ">
+				<item value="px">px</item>
+				<item value="pt">pt</item>
+				<item value="in">in</item>
+				<item value="ft">ft</item>
+				<item value="yd">yd</item>
+				<item value="mm">mm</item>
+				<item value="cm">cm</item>
+				<item value="m">m</item>
+				<item value="km">km</item>
+			</param>
+			<param name="rows"  type="int"   min="1" max="500" _gui-text="Number of rows:">12</param>
+			<param name="row_height"  type="int"   min="1" max="5000" _gui-text="Row height:">50</param>
+			<param name="row_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter height (spacing between rows):">10</param>
+			<param name="include_outer_row_gutter" type="boolean" _gui-text="Include outer gutters">true</param>
+			<param name="row_alignment" type="enum" _gui-text="Alignment in relation to page:">
+				<_item value="top">Top aligned</_item>
+				<_item value="centered">Centered</_item>
+				<_item value="bottom">Bottom aligned</_item>
+			</param>
+			<param name="row_offset"  type="int"   min="-5000" max="5000" _gui-text="Additional vertical offset (optional, can be negative):">0</param>
+			<param name="description-separator" type="description">----------</param>
+			<param name="delete_hor_guides" type="boolean" _gui-text="Delete existing horizontal guides before generating">false</param>
+			<param name="show_total_height" type="boolean" _gui-text="Show total height before generating">false</param>
+		</page>
+		<page name="help" _gui-text="Help">
+			<param name="help_text" type="description">This extension allows you to create a grid - a series of guides to make equal width columns (or rows) with gutters - the spacing between columns. Gutter width can be zero to generate equal distance guides. The generated grid can be aligned in relation to the borders of the page, or centered to the page, and can have an extra custom offset, which can be negative.</param>
+		</page>
+	</param>
+
+	<effect>
+		<object-type>all</object-type>
+		<effects-menu>
+			<submenu _name="Guides"/>
+		</effects-menu>
+	</effect>
+
+	<script>
+		<command reldir="extensions" interpreter="python">add_grid_guides.py</command>
+	</script>
+
+</inkscape-extension>
+
