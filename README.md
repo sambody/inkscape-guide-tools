@@ -77,13 +77,12 @@ For a version compatible with Inkscape 0.48 or ealier, [download the old version
 To install:
 
 1. Unzip (extract) the downloaded archive on your computer;
-2. Inside the archive, open the folder named "extensions". Copy all the files that are inside the "extensions" folder (NOT the folder itself) into your Inkscape extensions folder, which you can find here:
+2. Inside the archive, open the folder named "extensions". Copy all the files that are inside the "extensions" folder (NOT the folder itself) into your user extensions folder, which you can find here:
 
-- on Windows: "C:\Program Files\Inkscape\share\extensions" OR in "C:\Users\Users\YourUserName\.Appdata\Roaming\inkscape\extensions"
-- on Linux: " /home/yourusername/.config/inkscape/extensions" (.config is a hidden folder)
-- on OS X: "/Applications/Inkscape.app/Contents/Resources/extensions" 
+- on Windows: `C:\Users\YourUserName\.Appdata\Roaming\inkscape\extensions`
+- on Linux and OS X: `$HOME/.config/inkscape/extensions/` (where $HOME is your user folder, and .config is a hidden folder)
 
-Restart or open Inkscape.
+Restart Inkscape.
 
 ### Where to find the extensions menu
 
