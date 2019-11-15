@@ -237,7 +237,7 @@ class Grid_Guides(inkex.Effect):
 		# columns
 
 		# Factor to multiply in order to get value in user units (pixels)
-		col_factor = inkex.unittouu('1' + self.options.column_unit)
+		col_factor = self.unittouu('1' + self.options.column_unit)
 		col_alignment = self.options.column_alignment
 		col_offset = float(self.options.column_offset) * col_factor
 		cols = int(self.options.columns)
@@ -248,7 +248,7 @@ class Grid_Guides(inkex.Effect):
 		show_total_width = self.options.show_total_width
 
 		# rows
-		row_factor = inkex.unittouu('1' + self.options.row_unit)
+		row_factor = self.unittouu('1' + self.options.row_unit)
 		row_alignment = self.options.row_alignment
 		row_offset = float(self.options.row_offset) * row_factor
 		rows = int(self.options.rows)
@@ -263,8 +263,8 @@ class Grid_Guides(inkex.Effect):
 
 		# main SVG document element (canvas)
 		svg = self.document.getroot()
-		canvas_width  = inkex.unittouu(svg.get('width'))
-		canvas_height = inkex.unittouu(svg.attrib['height'])
+		canvas_width  = self.unittouu(svg.get('width'))
+		canvas_height = self.unittouu(svg.attrib['height'])
 
 		# total width  (columns and gutters)
 		if has_outer_col_gutter:
